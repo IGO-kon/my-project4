@@ -3,125 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sakura Academy - 学習プラットフォーム</title>
+  <title>WanderJapan - 旅行サイト</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: #2d3748; }
-    header { background: #fff; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 1.3rem; font-weight: 800; color: #553c9a; }
-    .logo .cherry { color: #f687b3; }
-    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
-    .btn-signup { background: #553c9a; color: #fff !important; padding: 8px 20px; border-radius: 6px; }
-    .hero { background: linear-gradient(135deg, #553c9a 0%, #805ad5 60%, #d6bcfa 100%); padding: 80px 40px; color: #fff; text-align: center; }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 16px; }
-    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
-    .search-box { display: flex; max-width: 500px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; }
-    .search-box input { flex: 1; border: none; padding: 14px 16px; font-size: 0.9rem; outline: none; color: #333; }
-    .search-box button { background: #f6ad55; border: none; padding: 14px 24px; font-weight: 700; cursor: pointer; color: #2d3748; }
-    .stats { display: flex; justify-content: center; gap: 60px; padding: 30px; background: #fff; border-bottom: 1px solid #eee; flex-wrap: wrap; }
-    .stat { text-align: center; }
-    .stat .n { font-size: 1.6rem; font-weight: 800; color: #553c9a; }
-    .stat .l { font-size: 0.8rem; color: #888; }
-    .section { padding: 70px 40px; max-width: 1100px; margin: 0 auto; }
-    .section h2 { font-size: 1.8rem; margin-bottom: 8px; color: #2d3748; }
-    .section .sub { color: #888; margin-bottom: 40px; }
-    .courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
-    .course-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform .2s; cursor: pointer; }
-    .course-card:hover { transform: translateY(-4px); }
-    .course-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-    .course-body { padding: 18px; }
-    .course-tag { font-size: 0.72rem; color: #805ad5; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .course-body h3 { font-size: 0.95rem; margin-bottom: 8px; line-height: 1.4; }
-    .course-meta { font-size: 0.8rem; color: #999; display: flex; justify-content: space-between; margin-top: 10px; }
-    .course-price { color: #553c9a; font-weight: 700; }
-    .stars { color: #f6ad55; }
-    .categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
-    .cat-btn { background: #f7f3ff; color: #553c9a; border: 1px solid #d6bcfa; padding: 10px 20px; border-radius: 30px; font-size: 0.85rem; cursor: pointer; transition: all .2s; }
-    .cat-btn:hover { background: #553c9a; color: #fff; }
-    footer { background: #2d3748; color: #a0aec0; text-align: center; padding: 30px; font-size: 0.85rem; }
+    body { font-family: 'Segoe UI', sans-serif; color: #333; }
+    header { position: fixed; top: 0; width: 100%; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; background: rgba(0,0,0,0.3); backdrop-filter: blur(6px); }
+    .logo { color: #fff; font-size: 1.4rem; font-weight: 700; }
+    .logo span { color: #ffd700; }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+    .btn-book { background: #ff6b35; padding: 8px 20px; border-radius: 20px; font-weight: 700; }
+    .hero { height: 100vh; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%), linear-gradient(135deg, #134e5e, #71b280); display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; padding: 0 20px; }
+    .hero h1 { font-size: 3.5rem; margin-bottom: 16px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+    .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 40px; }
+    .search-widget { background: rgba(255,255,255,0.95); border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .search-field { display: flex; flex-direction: column; }
+    .search-field label { font-size: 0.75rem; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    .search-field input, .search-field select { border: none; border-bottom: 1px solid #ddd; padding: 6px 0; font-size: 0.95rem; color: #333; outline: none; min-width: 140px; background: transparent; }
+    .search-btn { background: #ff6b35; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; }
+    .destinations { padding: 80px 40px; background: #fafafa; }
+    .destinations h2 { text-align: center; font-size: 2rem; margin-bottom: 8px; }
+    .destinations .sub { text-align: center; color: #888; margin-bottom: 40px; }
+    .dest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .dest-card { border-radius: 16px; overflow: hidden; position: relative; height: 300px; cursor: pointer; }
+    .dest-card .bg { width: 100%; height: 100%; transition: transform .4s; }
+    .dest-card:hover .bg { transform: scale(1.06); }
+    .dest-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; }
+    .dest-info h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .dest-info p { font-size: 0.85rem; opacity: 0.8; }
+    .dest-info .price { color: #ffd700; font-weight: 700; margin-top: 6px; }
+    .tours { padding: 80px 40px; background: #fff; }
+    .tours h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+    .tour-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .tour { display: flex; gap: 16px; background: #f8f8f8; border-radius: 12px; padding: 20px; }
+    .tour .icon { font-size: 2rem; flex-shrink: 0; }
+    .tour h4 { font-size: 1rem; margin-bottom: 6px; }
+    .tour p { color: #777; font-size: 0.85rem; line-height: 1.5; }
+    .tour .detail { margin-top: 8px; font-size: 0.8rem; color: #ff6b35; font-weight: 600; }
+    footer { background: #1a1a2e; color: #888; text-align: center; padding: 30px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><span class="cherry">🌸</span> Sakura Academy</div>
+    <div class="logo">Wander<span>Japan</span> 🗾</div>
     <nav>
-      <a href="#">コース</a>
-      <a href="#">講師</a>
-      <a href="#">企業向け</a>
-      <a href="#">ログイン</a>
-      <a href="#" class="btn-signup">無料登録</a>
+      <a href="#">目的地</a>
+      <a href="#">ツアー</a>
+      <a href="#">ホテル</a>
+      <a href="#">ブログ</a>
+      <a href="#" class="btn-book">今すぐ予約</a>
     </nav>
   </header>
 
   <div class="hero">
-    <h1>学ぶ楽しさを、すべての人に</h1>
-    <p>1,500以上のコースで、プログラミング・デザイン・ビジネスなど、あなたのスキルアップを全力サポートします。</p>
-    <div class="search-box">
-      <input type="text" placeholder="学びたいスキルを検索...">
-      <button>検索</button>
+    <h1>🗾 日本の美しさを旅しよう</h1>
+    <p>四季折々の絶景と文化体験。あなただけの旅を見つけてください。</p>
+    <div class="search-widget">
+      <div class="search-field">
+        <label>目的地</label>
+        <select><option>京都</option><option>東京</option><option>沖縄</option><option>北海道</option></select>
+      </div>
+      <div class="search-field">
+        <label>出発日</label>
+        <input type="date">
+      </div>
+      <div class="search-field">
+        <label>人数</label>
+        <select><option>1名</option><option>2名</option><option>3名</option><option>4名以上</option></select>
+      </div>
+      <button class="search-btn">🔍 検索</button>
     </div>
   </div>
 
-  <div class="stats">
-    <div class="stat"><div class="n">1,500+</div><div class="l">コース数</div></div>
-    <div class="stat"><div class="n">320,000+</div><div class="l">学習者</div></div>
-    <div class="stat"><div class="n">450+</div><div class="l">優秀な講師</div></div>
-    <div class="stat"><div class="n">95%</div><div class="l">満足度</div></div>
-  </div>
-
-  <div class="section">
-    <h2>人気のコース</h2>
-    <p class="sub">今最も注目されているコースをチェック</p>
-    <div class="courses">
-      <div class="course-card">
-        <div class="course-thumb" style="background:#ebf8ff;">💻</div>
-        <div class="course-body">
-          <p class="course-tag">プログラミング</p>
-          <h3>Python完全マスター：データサイエンスからAIまで</h3>
-          <div class="course-meta"><span class="stars">★★★★★ 4.9</span><span class="course-price">¥4,800</span></div>
+  <div class="destinations">
+    <h2>人気の目的地</h2>
+    <p class="sub">今シーズン最も人気の旅先をご紹介</p>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="bg" style="background: linear-gradient(135deg, #f093fb, #f5576c); height:100%;"></div>
+        <div class="dest-info">
+          <h3>🌸 京都</h3>
+          <p>古都の風情と桜が織りなす絶景</p>
+          <p class="price">¥45,000〜 / 2泊</p>
         </div>
       </div>
-      <div class="course-card">
-        <div class="course-thumb" style="background:#fff5f5;">🎨</div>
-        <div class="course-body">
-          <p class="course-tag">デザイン</p>
-          <h3>UIデザイン入門：Figmaで作るプロ品質のデザイン</h3>
-          <div class="course-meta"><span class="stars">★★★★★ 4.8</span><span class="course-price">¥3,980</span></div>
+      <div class="dest-card">
+        <div class="bg" style="background: linear-gradient(135deg, #4facfe, #00f2fe); height:100%;"></div>
+        <div class="dest-info">
+          <h3>🌊 沖縄</h3>
+          <p>青い海とリゾートの楽園</p>
+          <p class="price">¥68,000〜 / 3泊</p>
         </div>
       </div>
-      <div class="course-card">
-        <div class="course-thumb" style="background:#f0fff4;">📈</div>
-        <div class="course-body">
-          <p class="course-tag">マーケティング</p>
-          <h3>デジタルマーケティング戦略：SNSからSEOまで</h3>
-          <div class="course-meta"><span class="stars">★★★★☆ 4.7</span><span class="course-price">¥5,200</span></div>
+      <div class="dest-card">
+        <div class="bg" style="background: linear-gradient(135deg, #43e97b, #38f9d7); height:100%;"></div>
+        <div class="dest-info">
+          <h3>🍃 北海道</h3>
+          <p>大自然の絶景と新鮮な食の宝庫</p>
+          <p class="price">¥55,000〜 / 3泊</p>
         </div>
       </div>
-      <div class="course-card">
-        <div class="course-thumb" style="background:#fffff0;">🤖</div>
-        <div class="course-body">
-          <p class="course-tag">AI・機械学習</p>
-          <h3>生成AI活用術：ChatGPTとCopilotを使いこなす</h3>
-          <div class="course-meta"><span class="stars">★★★★★ 4.9</span><span class="course-price">¥6,800</span></div>
+      <div class="dest-card">
+        <div class="bg" style="background: linear-gradient(135deg, #fa709a, #fee140); height:100%;"></div>
+        <div class="dest-info">
+          <h3>⛩ 東京</h3>
+          <p>最先端と伝統が融合する都市</p>
+          <p class="price">¥38,000〜 / 2泊</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <h2 style="margin-top:60px;">カテゴリから探す</h2>
-    <div class="categories">
-      <button class="cat-btn">💻 プログラミング</button>
-      <button class="cat-btn">🎨 デザイン</button>
-      <button class="cat-btn">📊 データサイエンス</button>
-      <button class="cat-btn">🤖 AI・機械学習</button>
-      <button class="cat-btn">📈 マーケティング</button>
-      <button class="cat-btn">🗣 語学</button>
-      <button class="cat-btn">🎵 音楽</button>
-      <button class="cat-btn">📷 写真・動画</button>
+  <div class="tours">
+    <h2>おすすめツアー</h2>
+    <div class="tour-list">
+      <div class="tour">
+        <div class="icon">🍣</div>
+        <div>
+          <h4>グルメツアー：築地市場&料理体験</h4>
+          <p>プロの料理人と一緒に本格的な和食を学ぶ特別体験。</p>
+          <p class="detail">📅 1日間 | 👤 最大8名 | ¥12,800/人</p>
+        </div>
+      </div>
+      <div class="tour">
+        <div class="icon">🏯</div>
+        <div>
+          <h4>歴史探訪：城めぐりバスツアー</h4>
+          <p>姫路城・大阪城・名古屋城を巡る2泊3日の歴史の旅。</p>
+          <p class="detail">📅 3日間 | 👤 最大20名 | ¥78,000/人</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Sakura Academy - すべての人に学ぶ機会を</p>
+    <p>&copy; 2025 WanderJapan - 忘れられない旅の思い出を、あなたに</p>
   </footer>
 </body>
 </html>
