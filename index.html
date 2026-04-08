@@ -3,116 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediCare Plus - 医療・ヘルスケアサイト</title>
+  <title>Green Future - 非営利団体サイト</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', sans-serif; color: #2d3748; }
     header { background: #fff; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 1.3rem; font-weight: 700; color: #0085a1; }
-    .logo .plus { color: #e53e3e; font-size: 1.5rem; }
-    nav a { color: #555; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
-    nav a:hover { color: #0085a1; }
-    .btn-appt { background: #0085a1; color: #fff !important; padding: 8px 18px; border-radius: 6px; font-weight: 600; }
-    .hero { background: linear-gradient(135deg, #0085a1 0%, #00b4cc 100%); color: #fff; padding: 80px 40px; display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .hero-text { max-width: 520px; }
-    .hero-text h1 { font-size: 2.6rem; margin-bottom: 16px; line-height: 1.3; }
-    .hero-text p { opacity: 0.9; font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: #0085a1; padding: 12px 26px; border-radius: 6px; text-decoration: none; font-weight: 700; }
-    .btn-outline { border: 2px solid #fff; color: #fff; padding: 12px 26px; border-radius: 6px; text-decoration: none; }
-    .hero-card { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 16px; padding: 30px; min-width: 240px; border: 1px solid rgba(255,255,255,0.3); }
-    .hero-card h3 { margin-bottom: 16px; font-size: 1rem; }
-    .hero-card .time-slot { display: flex; align-items: center; gap: 12px; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 8px; margin-bottom: 10px; cursor: pointer; }
-    .hero-card .time-slot .doc-av { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-    .hero-card .time-slot .info h5 { font-size: 0.85rem; }
-    .hero-card .time-slot .info p { font-size: 0.75rem; opacity: 0.8; }
-    .services { padding: 80px 40px; background: #f7fafc; }
-    .services h2 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #0085a1; }
-    .services .sub { text-align: center; color: #888; margin-bottom: 50px; }
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
-    .service-card { background: #fff; border-radius: 12px; padding: 28px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform .2s; cursor: pointer; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-card .icon { font-size: 2.5rem; margin-bottom: 14px; }
-    .service-card h3 { font-size: 0.95rem; margin-bottom: 8px; color: #2d3748; }
-    .service-card p { color: #888; font-size: 0.85rem; line-height: 1.5; }
-    .doctors { padding: 80px 40px; background: #fff; }
-    .doctors h2 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; }
-    .doctors .sub { text-align: center; color: #888; margin-bottom: 50px; }
-    .doctor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
-    .doctor-card { text-align: center; }
-    .doctor-card .avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 4px solid #0085a1; }
-    .doctor-card h4 { font-size: 1rem; margin-bottom: 4px; }
-    .doctor-card .specialty { color: #0085a1; font-size: 0.85rem; margin-bottom: 4px; }
-    .doctor-card .rating { color: #f6c90e; font-size: 0.85rem; }
-    .cta { background: linear-gradient(135deg, #0085a1, #00b4cc); color: #fff; padding: 70px 40px; text-align: center; }
-    .cta h2 { font-size: 2rem; margin-bottom: 12px; }
-    .cta p { opacity: 0.85; margin-bottom: 28px; }
-    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: #276749; }
+    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+    nav a:hover { color: #276749; }
+    .btn-donate { background: #276749; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-weight: 700; }
+    .hero { background: linear-gradient(135deg, #1a4731, #276749, #2f855a); color: #fff; padding: 100px 40px 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: '🌿🌱🍃🌿🌱🍃🌿🌱'; position: absolute; font-size: 8rem; opacity: 0.05; top: 0; left: 0; right: 0; letter-spacing: 30px; }
+    .hero-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); padding: 6px 20px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 24px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 16px; line-height: 1.2; }
+    .hero h1 span { color: #9ae6b4; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-green { background: #9ae6b4; color: #1a4731; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 800; }
+    .btn-white-outline { border: 2px solid rgba(255,255,255,0.7); color: #fff; padding: 14px 32px; border-radius: 6px; text-decoration: none; }
+    .impact { display: grid; grid-template-columns: repeat(4, 1fr); background: #f0fff4; }
+    .impact-item { text-align: center; padding: 36px 20px; border-right: 1px solid #c6f6d5; }
+    .impact-item:last-child { border-right: none; }
+    .impact-item .number { font-size: 2.2rem; font-weight: 900; color: #276749; }
+    .impact-item .label { color: #718096; font-size: 0.85rem; margin-top: 6px; }
+    .mission { padding: 80px 40px; background: #fff; }
+    .mission-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .mission-text h2 { font-size: 1.8rem; color: #276749; margin-bottom: 16px; line-height: 1.3; }
+    .mission-text p { color: #718096; line-height: 1.8; margin-bottom: 16px; }
+    .mission-visual { background: linear-gradient(135deg, #c6f6d5, #9ae6b4); border-radius: 16px; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .programs { padding: 80px 40px; background: #f7fdf7; }
+    .programs h2 { text-align: center; font-size: 1.8rem; color: #276749; margin-bottom: 8px; }
+    .programs .sub { text-align: center; color: #888; margin-bottom: 50px; }
+    .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .program-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid #276749; }
+    .program-card .icon { font-size: 2rem; margin-bottom: 14px; }
+    .program-card h3 { font-size: 1rem; color: #276749; margin-bottom: 8px; }
+    .program-card p { color: #718096; font-size: 0.9rem; line-height: 1.6; }
+    .program-card .progress { margin-top: 16px; }
+    .progress-bar { background: #c6f6d5; border-radius: 10px; height: 8px; margin-top: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #276749; border-radius: 10px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: #888; }
+    .donate-section { background: linear-gradient(135deg, #1a4731, #276749); color: #fff; padding: 80px 40px; text-align: center; }
+    .donate-section h2 { font-size: 2rem; margin-bottom: 16px; }
+    .donate-section p { opacity: 0.85; max-width: 500px; margin: 0 auto 36px; line-height: 1.7; }
+    .donate-amounts { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .amount-btn { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all .2s; }
+    .amount-btn:hover, .amount-btn.active { background: #9ae6b4; color: #1a4731; border-color: #9ae6b4; }
     footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 30px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">MediCare<span class="plus">+</span></div>
+    <div class="logo">🌿 Green Future</div>
     <nav>
-      <a href="#">診療科目</a>
-      <a href="#">医師紹介</a>
-      <a href="#">健康情報</a>
-      <a href="#">アクセス</a>
-      <a href="#" class="btn-appt">予約する</a>
+      <a href="#">活動内容</a>
+      <a href="#">実績</a>
+      <a href="#">参加する</a>
+      <a href="#">ニュース</a>
+      <a href="#" class="btn-donate">寄付する</a>
     </nav>
   </header>
 
   <div class="hero">
-    <div class="hero-text">
-      <h1>あなたとご家族の<br>健康を守るために</h1>
-      <p>MediCare Plusは、最新の医療技術と温かいケアで、患者様の健康をトータルサポートします。予防から治療まで、いつでも頼れるかかりつけ医として。</p>
-      <div class="hero-cta">
-        <a href="#" class="btn-white">🗓 オンライン予約</a>
-        <a href="#" class="btn-outline">📞 電話で相談</a>
-      </div>
+    <span class="hero-badge">🌍 2030年までにCO₂排出ゼロを目指して</span>
+    <h1>地球の未来を、<br><span>一緒に守ろう</span></h1>
+    <p>Green Futureは、気候変動・環境保護・持続可能な社会の実現に取り組む非営利団体です。あなたの小さな行動が、大きな変化を生みます。</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-green">💚 寄付して支援する</a>
+      <a href="#" class="btn-white-outline">ボランティア登録</a>
     </div>
-    <div class="hero-card">
-      <h3>📅 本日の空き枠</h3>
-      <div class="time-slot">
-        <div class="doc-av">👨‍⚕️</div>
-        <div class="info"><h5>山田 太郎 医師</h5><p>内科 | 10:00〜</p></div>
+  </div>
+
+  <div class="impact">
+    <div class="impact-item"><div class="number">120万本</div><div class="label">植林した木の数</div></div>
+    <div class="impact-item"><div class="number">45,000人</div><div class="label">活動参加者数</div></div>
+    <div class="impact-item"><div class="number">80トン</div><div class="label">削減したCO₂量</div></div>
+    <div class="impact-item"><div class="number">120都市</div><div class="label">活動拠点数</div></div>
+  </div>
+
+  <div class="mission">
+    <div class="mission-inner">
+      <div class="mission-text">
+        <h2>私たちのミッション：地球を次世代に繋ぐ</h2>
+        <p>気候変動は今、私たちの世代が解決しなければならない最大の課題です。Green Futureは、植林・クリーンエネルギー普及・環境教育を通じて、持続可能な未来の実現に取り組んでいます。</p>
+        <p>2015年の設立以来、世界30カ国以上でプロジェクトを展開し、120万本の木を植え、数万人の生活環境を改善してきました。</p>
       </div>
-      <div class="time-slot">
-        <div class="doc-av">👩‍⚕️</div>
-        <div class="info"><h5>鈴木 花子 医師</h5><p>小児科 | 14:00〜</p></div>
+      <div class="mission-visual">🌳</div>
+    </div>
+  </div>
+
+  <div class="programs">
+    <h2>活動プログラム</h2>
+    <p class="sub">現在進行中の主要プロジェクト</p>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="icon">🌱</div>
+        <h3>森林再生プロジェクト</h3>
+        <p>熱帯雨林の復元と生物多様性の保全。2025年末までに50万本を植林します。</p>
+        <div class="progress">
+          <div class="progress-label"><span>達成率</span><span>68%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:68%;"></div></div>
+        </div>
       </div>
-      <div class="time-slot">
-        <div class="doc-av">👨‍⚕️</div>
-        <div class="info"><h5>田中 健 医師</h5><p>整形外科 | 16:30〜</p></div>
+      <div class="program-card">
+        <div class="icon">☀️</div>
+        <h3>クリーンエネルギー普及</h3>
+        <p>農村地域へのソーラーパネル設置と再生可能エネルギーの教育プログラム。</p>
+        <div class="progress">
+          <div class="progress-label"><span>達成率</span><span>45%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:45%;"></div></div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="icon">🏫</div>
+        <h3>環境教育キャンペーン</h3>
+        <p>全国の小中学校で環境問題を学ぶワークショップを実施。次世代の意識を育てます。</p>
+        <div class="progress">
+          <div class="progress-label"><span>達成率</span><span>82%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:82%;"></div></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="services">
-    <h2>診療科目</h2>
-    <p class="sub">幅広い診療科目で、患者様のあらゆるニーズにお応えします</p>
-    <div class="service-grid">
-      <div class="service-card"><div class="icon">🫀</div><h3>内科</h3><p>生活習慣病・感染症・消化器系疾患の診断と治療</p></div>
-      <div class="service-card"><div class="icon">🧒</div><h3>小児科</h3><p>新生児から思春期まで、お子様の健康を専門的にサポート</p></div>
-      <div class="service-card"><div class="icon">🦷</div><h3>歯科</h3><p>虫歯治療・矯正・インプラントまで、口腔ケア全般</p></div>
-      <div class="service-card"><div class="icon">🧠</div><h3>神経科</h3><p>頭痛・めまい・神経疾患の精密検査と専門治療</p></div>
-      <div class="service-card"><div class="icon">👁</div><h3>眼科</h3><p>視力検査・白内障・緑内障の診断と治療</p></div>
-      <div class="service-card"><div class="icon">🤱</div><h3>産婦人科</h3><p>産前産後ケアから婦人科検診まで女性の健康を守ります</p></div>
+  <div class="donate-section">
+    <h2>💚 あなたの支援が変化を生む</h2>
+    <p>月に一度の寄付で、継続的な活動を支えてください。どんな金額でも大きな力になります。</p>
+    <div class="donate-amounts">
+      <button class="amount-btn">¥500</button>
+      <button class="amount-btn active">¥1,000</button>
+      <button class="amount-btn">¥3,000</button>
+      <button class="amount-btn">¥5,000</button>
+      <button class="amount-btn">任意の金額</button>
     </div>
-  </div>
-
-  <div class="cta">
-    <h2>今すぐ予約しましょう</h2>
-    <p>オンラインでいつでも簡単に予約できます。お気軽にご相談ください。</p>
-    <div class="cta-actions">
-      <a href="#" class="btn-white">🗓 オンライン予約</a>
-      <a href="#" style="border:2px solid #fff; color:#fff; padding:12px 26px; border-radius:6px; text-decoration:none;">📞 03-XXXX-XXXX</a>
-    </div>
+    <a href="#" class="btn-green">今すぐ寄付する</a>
   </div>
 
   <footer>
-    <p>&copy; 2025 MediCare Plus | 医療法人〇〇会 | 東京都〇〇区〇〇1-2-3 | 診療時間: 月〜土 9:00-18:00</p>
+    <p>&copy; 2025 Green Future NPO法人 | 認定NPO法人番号: XXXX-XXXX | contact@greenfuture.jp</p>
   </footer>
 </body>
 </html>
