@@ -3,146 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HomeQuest - 不動産サイト</title>
+  <title>MediCare Plus - 医療・ヘルスケアサイト</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: #2d3748; background: #f7f8fc; }
+    body { font-family: 'Segoe UI', sans-serif; color: #2d3748; }
     header { background: #fff; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; }
-    .logo { font-size: 1.3rem; font-weight: 800; color: #2b6cb0; }
-    .logo span { color: #e53e3e; }
-    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: color .2s; }
-    nav a:hover { color: #2b6cb0; }
-    .btn-list { background: #2b6cb0; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-weight: 600; }
-    .hero { background: linear-gradient(135deg, #2b6cb0, #2c5282); color: #fff; padding: 80px 40px; text-align: center; }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 16px; font-weight: 800; }
-    .hero p { opacity: 0.85; max-width: 500px; margin: 0 auto 36px; font-size: 1.05rem; }
-    .search-box { background: #fff; border-radius: 12px; padding: 24px; max-width: 700px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; }
-    .search-field { flex: 1; min-width: 140px; }
-    .search-field label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
-    .search-field select, .search-field input { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; font-size: 0.9rem; color: #333; outline: none; }
-    .search-field select:focus, .search-field input:focus { border-color: #2b6cb0; }
-    .search-btn { background: #e53e3e; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9rem; align-self: flex-end; }
-    .stats-bar { background: #2c5282; color: #fff; padding: 20px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
-    .stat-item { text-align: center; }
-    .stat-item .n { font-size: 1.5rem; font-weight: 800; color: #90cdf4; }
-    .stat-item .l { font-size: 0.8rem; opacity: 0.7; }
-    .section { padding: 70px 40px; max-width: 1100px; margin: 0 auto; }
-    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .section-header h2 { font-size: 1.6rem; font-weight: 700; }
-    .section-header a { color: #2b6cb0; text-decoration: none; font-size: 0.9rem; }
-    .properties { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-    .property-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.07); transition: transform .2s, box-shadow .2s; cursor: pointer; }
-    .property-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
-    .prop-img { height: 200px; position: relative; }
-    .prop-badge { position: absolute; top: 12px; left: 12px; background: #2b6cb0; color: #fff; font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; font-weight: 600; }
-    .prop-badge.sale { background: #e53e3e; }
-    .prop-body { padding: 18px; }
-    .prop-price { font-size: 1.4rem; font-weight: 800; color: #2b6cb0; margin-bottom: 8px; }
-    .prop-title { font-size: 0.95rem; margin-bottom: 8px; }
-    .prop-address { color: #888; font-size: 0.85rem; margin-bottom: 12px; }
-    .prop-features { display: flex; gap: 16px; font-size: 0.82rem; color: #666; border-top: 1px solid #f0f0f0; padding-top: 12px; }
-    .prop-feature { display: flex; align-items: center; gap: 4px; }
-    footer { background: #1a202c; color: #a0aec0; padding: 40px; text-align: center; font-size: 0.85rem; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: #0085a1; }
+    .logo .plus { color: #e53e3e; font-size: 1.5rem; }
+    nav a { color: #555; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+    nav a:hover { color: #0085a1; }
+    .btn-appt { background: #0085a1; color: #fff !important; padding: 8px 18px; border-radius: 6px; font-weight: 600; }
+    .hero { background: linear-gradient(135deg, #0085a1 0%, #00b4cc 100%); color: #fff; padding: 80px 40px; display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .hero-text { max-width: 520px; }
+    .hero-text h1 { font-size: 2.6rem; margin-bottom: 16px; line-height: 1.3; }
+    .hero-text p { opacity: 0.9; font-size: 1.05rem; line-height: 1.7; margin-bottom: 30px; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: #0085a1; padding: 12px 26px; border-radius: 6px; text-decoration: none; font-weight: 700; }
+    .btn-outline { border: 2px solid #fff; color: #fff; padding: 12px 26px; border-radius: 6px; text-decoration: none; }
+    .hero-card { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 16px; padding: 30px; min-width: 240px; border: 1px solid rgba(255,255,255,0.3); }
+    .hero-card h3 { margin-bottom: 16px; font-size: 1rem; }
+    .hero-card .time-slot { display: flex; align-items: center; gap: 12px; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 8px; margin-bottom: 10px; cursor: pointer; }
+    .hero-card .time-slot .doc-av { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .hero-card .time-slot .info h5 { font-size: 0.85rem; }
+    .hero-card .time-slot .info p { font-size: 0.75rem; opacity: 0.8; }
+    .services { padding: 80px 40px; background: #f7fafc; }
+    .services h2 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; color: #0085a1; }
+    .services .sub { text-align: center; color: #888; margin-bottom: 50px; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .service-card { background: #fff; border-radius: 12px; padding: 28px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform .2s; cursor: pointer; }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card .icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .service-card h3 { font-size: 0.95rem; margin-bottom: 8px; color: #2d3748; }
+    .service-card p { color: #888; font-size: 0.85rem; line-height: 1.5; }
+    .doctors { padding: 80px 40px; background: #fff; }
+    .doctors h2 { text-align: center; font-size: 1.8rem; margin-bottom: 8px; }
+    .doctors .sub { text-align: center; color: #888; margin-bottom: 50px; }
+    .doctor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .doctor-card { text-align: center; }
+    .doctor-card .avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 4px solid #0085a1; }
+    .doctor-card h4 { font-size: 1rem; margin-bottom: 4px; }
+    .doctor-card .specialty { color: #0085a1; font-size: 0.85rem; margin-bottom: 4px; }
+    .doctor-card .rating { color: #f6c90e; font-size: 0.85rem; }
+    .cta { background: linear-gradient(135deg, #0085a1, #00b4cc); color: #fff; padding: 70px 40px; text-align: center; }
+    .cta h2 { font-size: 2rem; margin-bottom: 12px; }
+    .cta p { opacity: 0.85; margin-bottom: 28px; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    footer { background: #1a202c; color: #a0aec0; text-align: center; padding: 30px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Home<span>Quest</span></div>
+    <div class="logo">MediCare<span class="plus">+</span></div>
     <nav>
-      <a href="#">売買物件</a>
-      <a href="#">賃貸物件</a>
-      <a href="#">新築・分譲</a>
-      <a href="#">会社概要</a>
-      <a href="#" class="btn-list">無料査定</a>
+      <a href="#">診療科目</a>
+      <a href="#">医師紹介</a>
+      <a href="#">健康情報</a>
+      <a href="#">アクセス</a>
+      <a href="#" class="btn-appt">予約する</a>
     </nav>
   </header>
 
   <div class="hero">
-    <h1>🏠 あなたの理想の家が、ここにある</h1>
-    <p>全国200,000件以上の物件情報から、あなたにぴったりの住まいを見つけましょう。</p>
-    <div class="search-box">
-      <div class="search-field">
-        <label>エリア</label>
-        <select><option>東京都</option><option>神奈川県</option><option>大阪府</option><option>愛知県</option></select>
+    <div class="hero-text">
+      <h1>あなたとご家族の<br>健康を守るために</h1>
+      <p>MediCare Plusは、最新の医療技術と温かいケアで、患者様の健康をトータルサポートします。予防から治療まで、いつでも頼れるかかりつけ医として。</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-white">🗓 オンライン予約</a>
+        <a href="#" class="btn-outline">📞 電話で相談</a>
       </div>
-      <div class="search-field">
-        <label>物件種別</label>
-        <select><option>すべて</option><option>マンション</option><option>一戸建て</option><option>土地</option></select>
+    </div>
+    <div class="hero-card">
+      <h3>📅 本日の空き枠</h3>
+      <div class="time-slot">
+        <div class="doc-av">👨‍⚕️</div>
+        <div class="info"><h5>山田 太郎 医師</h5><p>内科 | 10:00〜</p></div>
       </div>
-      <div class="search-field">
-        <label>価格上限</label>
-        <select><option>上限なし</option><option>3,000万円</option><option>5,000万円</option><option>1億円</option></select>
+      <div class="time-slot">
+        <div class="doc-av">👩‍⚕️</div>
+        <div class="info"><h5>鈴木 花子 医師</h5><p>小児科 | 14:00〜</p></div>
       </div>
-      <button class="search-btn">🔍 検索</button>
+      <div class="time-slot">
+        <div class="doc-av">👨‍⚕️</div>
+        <div class="info"><h5>田中 健 医師</h5><p>整形外科 | 16:30〜</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="stats-bar">
-    <div class="stat-item"><div class="n">200,000+</div><div class="l">掲載物件数</div></div>
-    <div class="stat-item"><div class="n">15,000+</div><div class="l">成約実績</div></div>
-    <div class="stat-item"><div class="n">98%</div><div class="l">顧客満足度</div></div>
-    <div class="stat-item"><div class="n">全国</div><div class="l">47都道府県対応</div></div>
+  <div class="services">
+    <h2>診療科目</h2>
+    <p class="sub">幅広い診療科目で、患者様のあらゆるニーズにお応えします</p>
+    <div class="service-grid">
+      <div class="service-card"><div class="icon">🫀</div><h3>内科</h3><p>生活習慣病・感染症・消化器系疾患の診断と治療</p></div>
+      <div class="service-card"><div class="icon">🧒</div><h3>小児科</h3><p>新生児から思春期まで、お子様の健康を専門的にサポート</p></div>
+      <div class="service-card"><div class="icon">🦷</div><h3>歯科</h3><p>虫歯治療・矯正・インプラントまで、口腔ケア全般</p></div>
+      <div class="service-card"><div class="icon">🧠</div><h3>神経科</h3><p>頭痛・めまい・神経疾患の精密検査と専門治療</p></div>
+      <div class="service-card"><div class="icon">👁</div><h3>眼科</h3><p>視力検査・白内障・緑内障の診断と治療</p></div>
+      <div class="service-card"><div class="icon">🤱</div><h3>産婦人科</h3><p>産前産後ケアから婦人科検診まで女性の健康を守ります</p></div>
+    </div>
   </div>
 
-  <div class="section">
-    <div class="section-header">
-      <h2>おすすめ物件</h2>
-      <a href="#">すべて見る →</a>
-    </div>
-    <div class="properties">
-      <div class="property-card">
-        <div class="prop-img" style="background: linear-gradient(135deg, #bee3f8, #63b3ed);">
-          <span class="prop-badge">売買</span>
-        </div>
-        <div class="prop-body">
-          <div class="prop-price">¥4,580万円</div>
-          <div class="prop-title">世田谷区〇〇 | 3LDK マンション</div>
-          <div class="prop-address">📍 東京都世田谷区〇〇1-2-3</div>
-          <div class="prop-features">
-            <span class="prop-feature">🛏 3部屋</span>
-            <span class="prop-feature">🚿 2浴室</span>
-            <span class="prop-feature">📐 82m²</span>
-            <span class="prop-feature">🚉 徒歩5分</span>
-          </div>
-        </div>
-      </div>
-      <div class="property-card">
-        <div class="prop-img" style="background: linear-gradient(135deg, #c6f6d5, #68d391);">
-          <span class="prop-badge">賃貸</span>
-        </div>
-        <div class="prop-body">
-          <div class="prop-price">¥15.8万円/月</div>
-          <div class="prop-title">港区〇〇 | 2LDK タワーマンション</div>
-          <div class="prop-address">📍 東京都港区〇〇3-4-5</div>
-          <div class="prop-features">
-            <span class="prop-feature">🛏 2部屋</span>
-            <span class="prop-feature">🚿 1浴室</span>
-            <span class="prop-feature">📐 68m²</span>
-            <span class="prop-feature">🚉 徒歩3分</span>
-          </div>
-        </div>
-      </div>
-      <div class="property-card">
-        <div class="prop-img" style="background: linear-gradient(135deg, #fbd38d, #f6ad55);">
-          <span class="prop-badge sale">新築</span>
-        </div>
-        <div class="prop-body">
-          <div class="prop-price">¥6,200万円</div>
-          <div class="prop-title">横浜市〇〇 | 4LDK 新築一戸建て</div>
-          <div class="prop-address">📍 神奈川県横浜市〇〇2-3-4</div>
-          <div class="prop-features">
-            <span class="prop-feature">🛏 4部屋</span>
-            <span class="prop-feature">🚿 2浴室</span>
-            <span class="prop-feature">📐 120m²</span>
-            <span class="prop-feature">🚉 徒歩8分</span>
-          </div>
-        </div>
-      </div>
+  <div class="cta">
+    <h2>今すぐ予約しましょう</h2>
+    <p>オンラインでいつでも簡単に予約できます。お気軽にご相談ください。</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-white">🗓 オンライン予約</a>
+      <a href="#" style="border:2px solid #fff; color:#fff; padding:12px 26px; border-radius:6px; text-decoration:none;">📞 03-XXXX-XXXX</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 HomeQuest Co., Ltd. | 宅地建物取引業者 東京都知事(1)第XXXXX号</p>
+    <p>&copy; 2025 MediCare Plus | 医療法人〇〇会 | 東京都〇〇区〇〇1-2-3 | 診療時間: 月〜土 9:00-18:00</p>
   </footer>
 </body>
 </html>
