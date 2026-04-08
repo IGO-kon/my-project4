@@ -3,87 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Tech Blog</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #fff; }
-    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-    header h1 { font-size: 1.4rem; letter-spacing: 2px; color: #7c3aed; }
-    nav a { color: #ccc; text-decoration: none; margin-left: 24px; transition: color .2s; }
-    nav a:hover { color: #7c3aed; }
-    .hero { text-align: center; padding: 100px 20px 60px; }
-    .hero h2 { font-size: 3rem; margin-bottom: 16px; }
-    .hero span { color: #7c3aed; }
-    .hero p { color: #aaa; font-size: 1.1rem; max-width: 520px; margin: 0 auto 32px; }
-    .btn { display: inline-block; background: #7c3aed; color: #fff; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: background .2s; }
-    .btn:hover { background: #6d28d9; }
-    .section { padding: 60px 40px; max-width: 1000px; margin: 0 auto; }
-    .section h3 { font-size: 2rem; margin-bottom: 32px; text-align: center; color: #7c3aed; }
-    .skills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-    .skill { background: #1e1e2e; border: 1px solid #7c3aed44; padding: 10px 20px; border-radius: 20px; font-size: 0.9rem; }
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .card { background: #1e1e2e; border-radius: 12px; padding: 24px; border: 1px solid #333; transition: border-color .2s; }
-    .card:hover { border-color: #7c3aed; }
-    .card h4 { margin-bottom: 10px; font-size: 1.1rem; }
-    .card p { color: #aaa; font-size: 0.9rem; line-height: 1.6; }
-    footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; }
+    body { font-family: 'Georgia', serif; background: #fafafa; color: #222; }
+    header { background: #fff; border-bottom: 2px solid #e44d26; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.6rem; color: #e44d26; }
+    nav a { color: #555; text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
+    nav a:hover { color: #e44d26; }
+    .hero { background: linear-gradient(135deg, #e44d26, #f16529); color: #fff; padding: 60px 40px; text-align: center; }
+    .hero h2 { font-size: 2.4rem; margin-bottom: 12px; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; }
+    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+    .posts { }
+    .post { background: #fff; border-radius: 8px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .post-img { height: 180px; background: linear-gradient(135deg, #667eea, #764ba2); }
+    .post-body { padding: 20px; }
+    .post-tag { font-size: 0.75rem; color: #e44d26; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .post h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .post p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+    .post-meta { margin-top: 12px; font-size: 0.8rem; color: #999; }
+    .sidebar { }
+    .widget { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .widget h4 { margin-bottom: 12px; color: #e44d26; font-size: 1rem; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+    .widget ul { list-style: none; }
+    .widget ul li { padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: #555; }
+    footer { background: #222; color: #aaa; text-align: center; padding: 30px; margin-top: 40px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>PORTFOLIO</h1>
+    <h1>📝 Tech Blog</h1>
     <nav>
-      <a href="#skills">スキル</a>
-      <a href="#projects">作品</a>
-      <a href="#contact">連絡</a>
+      <a href="#">ホーム</a>
+      <a href="#">カテゴリ</a>
+      <a href="#">アーカイブ</a>
+      <a href="#">お問い合わせ</a>
     </nav>
   </header>
 
   <div class="hero">
-    <h2>Hello, I'm <span>Yamada Taro</span></h2>
-    <p>フロントエンドエンジニア。美しくて使いやすいWebサイトを作ることが得意です。</p>
-    <a href="#projects" class="btn">作品を見る</a>
+    <h2>最新のテクノロジーを探る</h2>
+    <p>Web開発・AI・クラウドに関する最新情報をお届けします</p>
   </div>
 
-  <div class="section" id="skills">
-    <h3>スキル</h3>
-    <div class="skills">
-      <span class="skill">HTML / CSS</span>
-      <span class="skill">JavaScript</span>
-      <span class="skill">React</span>
-      <span class="skill">Node.js</span>
-      <span class="skill">Python</span>
-      <span class="skill">Git / GitHub</span>
-      <span class="skill">Figma</span>
-      <span class="skill">TypeScript</span>
-    </div>
-  </div>
+  <div class="container">
+    <main class="posts">
+      <article class="post">
+        <div class="post-img"></div>
+        <div class="post-body">
+          <p class="post-tag">JavaScript</p>
+          <h3>React 19の新機能を徹底解説</h3>
+          <p>React 19がリリースされ、多くの新機能と改善が加えられました。Server ComponentsやActionsなどの主要な変更点を詳しく見ていきます。</p>
+          <p class="post-meta">2025年4月1日 | 読了時間: 8分</p>
+        </div>
+      </article>
+      <article class="post">
+        <div class="post-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+        <div class="post-body">
+          <p class="post-tag">AI</p>
+          <h3>AIを使ったコード自動生成の現状と未来</h3>
+          <p>GitHub CopilotやChatGPTなどのAIツールがどのようにソフトウェア開発を変えているかを分析します。</p>
+          <p class="post-meta">2025年3月25日 | 読了時間: 12分</p>
+        </div>
+      </article>
+      <article class="post">
+        <div class="post-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+        <div class="post-body">
+          <p class="post-tag">クラウド</p>
+          <h3>AWS vs Azure vs GCP 2025年版比較</h3>
+          <p>3大クラウドプロバイダーをコスト・パフォーマンス・サービスの観点から徹底比較します。</p>
+          <p class="post-meta">2025年3月18日 | 読了時間: 15分</p>
+        </div>
+      </article>
+    </main>
 
-  <div class="section" id="projects">
-    <h3>プロジェクト</h3>
-    <div class="projects">
-      <div class="card">
-        <h4>📱 モバイルアプリUI</h4>
-        <p>React Nativeで構築したショッピングアプリのUIデザインと実装。</p>
+    <aside class="sidebar">
+      <div class="widget">
+        <h4>カテゴリ</h4>
+        <ul>
+          <li>JavaScript (24)</li>
+          <li>Python (18)</li>
+          <li>AI / ML (15)</li>
+          <li>クラウド (12)</li>
+          <li>セキュリティ (9)</li>
+        </ul>
       </div>
-      <div class="card">
-        <h4>🌐 コーポレートサイト</h4>
-        <p>スタートアップ企業向けのレスポンシブなコーポレートWebサイト。</p>
+      <div class="widget">
+        <h4>人気記事</h4>
+        <ul>
+          <li>TypeScript入門ガイド</li>
+          <li>Docker完全マスター</li>
+          <li>Gitベストプラクティス</li>
+        </ul>
       </div>
-      <div class="card">
-        <h4>📊 ダッシュボード</h4>
-        <p>売上データをリアルタイムで可視化する管理者向けダッシュボード。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="contact">
-    <h3>連絡先</h3>
-    <p style="text-align:center; color:#aaa;">taro.yamada@example.com</p>
+    </aside>
   </div>
 
   <footer>
-    <p>&copy; 2025 Yamada Taro Portfolio</p>
+    <p>&copy; 2025 Tech Blog - すべての記事はCC BY 4.0ライセンス</p>
   </footer>
 </body>
 </html>
