@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Daily Tribune | Breaking News</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Times New Roman',serif;background:#fff;color:#1a1a1a}
+  .top-header{background:#c41230;color:#fff;text-align:center;padding:.3rem;font-family:'Segoe UI',sans-serif;font-size:.8rem}
+  .header-main{border-bottom:3px solid #1a1a1a;padding:1rem 5%}
+  .date-line{text-align:center;color:#666;font-size:.8rem;font-family:'Segoe UI',sans-serif;margin-bottom:.5rem}
+  .masthead{text-align:center;margin-bottom:.5rem}
+  .masthead h1{font-size:4rem;font-weight:900;letter-spacing:-2px}
+  .tagline{color:#666;font-size:.85rem;font-family:'Segoe UI',sans-serif;text-align:center;margin-bottom:1rem}
+  .nav-strip{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:.5rem 0;font-family:'Segoe UI',sans-serif}
+  .nav-strip ul{max-width:1200px;margin:0 auto;list-style:none;display:flex;justify-content:center;gap:2rem}
+  .nav-strip ul a{color:#1a1a1a;text-decoration:none;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .nav-strip ul a:hover{color:#c41230}
+  .breaking{background:#c41230;color:#fff;padding:.4rem 5%;font-family:'Segoe UI',sans-serif;font-size:.85rem;display:flex;gap:1rem}
+  .breaking strong{white-space:nowrap}
+  main{max-width:1200px;margin:0 auto;padding:2rem 5%}
+  .lead-story{display:grid;grid-template-columns:3fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:2px solid #1a1a1a;margin-bottom:2rem}
+  .lead-img{height:350px;background:linear-gradient(135deg,#2c3e50,#3498db);display:flex;align-items:center;justify-content:center;font-size:6rem;border:1px solid #ccc}
+  .lead-content .category{color:#c41230;font-size:.8rem;font-family:'Segoe UI',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.5rem}
+  .lead-content h2{font-size:2.2rem;line-height:1.2;margin-bottom:1rem}
+  .lead-content h2 a{color:#1a1a1a;text-decoration:none}
+  .lead-content h2 a:hover{color:#c41230}
+  .byline{font-size:.8rem;color:#666;font-family:'Segoe UI',sans-serif;margin-bottom:.8rem}
+  .lead-content p{line-height:1.8;color:#333;font-size:1.05rem}
+  .sidebar h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:2px solid #1a1a1a;padding-bottom:.5rem;margin-bottom:1rem;font-family:'Segoe UI',sans-serif}
+  .side-story{padding:.8rem 0;border-bottom:1px solid #eee}
+  .side-story .cat{color:#c41230;font-size:.7rem;font-family:'Segoe UI',sans-serif;text-transform:uppercase;font-weight:700}
+  .side-story h4{font-size:.95rem;line-height:1.3;margin:.2rem 0}
+  .side-story h4 a{color:#1a1a1a;text-decoration:none}
+  .side-story h4 a:hover{color:#c41230}
+  .side-story .time{color:#999;font-size:.75rem;font-family:'Segoe UI',sans-serif}
+  .section-header{border-top:3px solid #1a1a1a;border-bottom:1px solid #ccc;padding:.3rem 0;margin:2rem 0 1.5rem;display:flex;align-items:center;gap:1rem}
+  .section-header h2{font-size:1rem;text-transform:uppercase;letter-spacing:.15em;font-family:'Segoe UI',sans-serif;font-weight:700}
+  .stories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+  .story-card .img-placeholder{height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:.8rem}
+  .story-card .cat{color:#c41230;font-size:.75rem;font-family:'Segoe UI',sans-serif;text-transform:uppercase;font-weight:700}
+  .story-card h3{font-size:1.05rem;line-height:1.3;margin:.3rem 0 .5rem}
+  .story-card h3 a{color:#1a1a1a;text-decoration:none}
+  .story-card h3 a:hover{color:#c41230}
+  .story-card p{font-size:.85rem;color:#555;line-height:1.6}
+  footer{background:#1a1a1a;color:#ccc;font-family:'Segoe UI',sans-serif;padding:2rem 5%;margin-top:3rem}
+  .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-inner .logo{color:#fff;font-family:'Times New Roman',serif;font-size:1.5rem}
+  .footer-nav a{color:#aaa;text-decoration:none;margin-left:1rem;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="top-header">⚡ LIVE UPDATES: Follow our live coverage of today's top stories</div>
+<header class="header-main">
+  <p class="date-line">Tuesday, April 8, 2025 &bull; Last updated: 10:30 AM ET</p>
+  <div class="masthead"><h1>The Daily Tribune</h1></div>
+  <p class="tagline">"All the News That's Fit to Print" &mdash; Founded 1842</p>
+</header>
+<div class="nav-strip">
+  <ul>
+    <li><a href="#">World</a></li>
+    <li><a href="#">Politics</a></li>
+    <li><a href="#">Business</a></li>
+    <li><a href="#">Technology</a></li>
+    <li><a href="#">Science</a></li>
+    <li><a href="#">Health</a></li>
+    <li><a href="#">Arts</a></li>
+    <li><a href="#">Sports</a></li>
+    <li><a href="#">Opinion</a></li>
+  </ul>
+</div>
+<div class="breaking"><strong>BREAKING:</strong> <span>Scientists announce major breakthrough in renewable energy storage technology &bull; Markets reach all-time high as tech stocks surge &bull; City council approves new infrastructure bill</span></div>
+<main>
+  <div class="lead-story">
+    <div>
+      <div class="lead-img">🌍</div>
+      <div style="margin-top:1rem">
+        <p class="category">World</p>
+        <h2><a href="#">World Leaders Gather for Historic Climate Summit as Nations Pledge Net Zero by 2040</a></h2>
+        <p class="byline">By Sarah Mitchell &bull; April 8, 2025</p>
+        <p>Representatives from 195 countries convened in Geneva today for what analysts are calling the most significant climate agreement in decades. The landmark accord, if ratified, would require all participating nations to achieve carbon neutrality by 2040 — a decade ahead of previous targets. Environmental groups are cautiously optimistic, while industry leaders warn of economic impacts...</p>
+      </div>
+    </div>
+    <div class="sidebar">
+      <h3>Latest Updates</h3>
+      <div class="side-story"><span class="cat">Technology</span><h4><a href="#">AI Startup Raises $2B in Record Funding Round</a></h4><span class="time">2 hours ago</span></div>
+      <div class="side-story"><span class="cat">Politics</span><h4><a href="#">Senate Passes Bipartisan Infrastructure Package</a></h4><span class="time">4 hours ago</span></div>
+      <div class="side-story"><span class="cat">Business</span><h4><a href="#">Federal Reserve Holds Interest Rates Steady for Third Quarter</a></h4><span class="time">5 hours ago</span></div>
+      <div class="side-story"><span class="cat">Health</span><h4><a href="#">New Study Links Mediterranean Diet to Increased Longevity</a></h4><span class="time">6 hours ago</span></div>
+      <div class="side-story"><span class="cat">Science</span><h4><a href="#">NASA's Artemis Mission Returns First Lunar Soil Samples</a></h4><span class="time">8 hours ago</span></div>
+    </div>
+  </div>
+  <div class="section-header"><h2>Top Stories</h2></div>
+  <div class="stories-grid">
+    <div class="story-card"><div class="img-placeholder">💰</div><span class="cat">Business</span><h3><a href="#">Global Markets Hit Record High as Tech Sector Leads Rally</a></h3><p>Stocks surged on Monday as investors responded positively to better-than-expected earnings reports from major technology firms...</p></div>
+    <div class="story-card"><div class="img-placeholder">🔬</div><span class="cat">Science</span><h3><a href="#">Breakthrough Battery Technology Could Revolutionize Electric Vehicles</a></h3><p>Researchers at MIT announce a new solid-state battery design that charges in minutes and lasts for decades...</p></div>
+    <div class="story-card"><div class="img-placeholder">🏥</div><span class="cat">Health</span><h3><a href="#">FDA Approves Revolutionary Gene Therapy for Rare Disease</a></h3><p>The Food and Drug Administration has approved a one-time gene therapy treatment that could cure thousands of patients...</p></div>
+    <div class="story-card"><div class="img-placeholder">��</div><span class="cat">Arts</span><h3><a href="#">Cannes Film Festival Lineup Announced with Record International Submissions</a></h3><p>This year's festival features films from 87 countries, with a record 45% directed by women filmmakers...</p></div>
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="logo">The Daily Tribune</div>
+    <div class="footer-nav">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Advertise</a>
+      <a href="#">Subscribe</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

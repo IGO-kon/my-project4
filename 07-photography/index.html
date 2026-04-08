@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emma Clarke Photography</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;background:#111;color:#fff}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4%;position:fixed;top:0;width:100%;z-index:100;transition:background .3s}
+  nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(10px)}
+  .logo{font-size:1.3rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+  nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+  nav ul a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+  nav ul a:hover{color:#fff}
+  .hero{height:100vh;position:relative;display:flex;align-items:flex-end;padding:4rem}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 30%,#0f3460 60%,#533483 100%);z-index:0}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 60%);z-index:1}
+  .hero-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:12rem;opacity:.15;z-index:0}
+  .hero-content{position:relative;z-index:2}
+  .hero-content .tag{color:#d4a853;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
+  .hero-content h1{font-size:4.5rem;font-weight:300;line-height:1.1;margin-bottom:1rem}
+  .hero-content p{color:rgba(255,255,255,.7);max-width:400px;line-height:1.8;margin-bottom:2rem}
+  .btn-white{display:inline-block;border:1px solid rgba(255,255,255,.5);color:#fff;padding:.8rem 2rem;text-decoration:none;letter-spacing:.1em;font-size:.85rem;text-transform:uppercase;transition:all .2s}
+  .btn-white:hover{background:#fff;color:#111}
+  .gallery{padding:4rem 4%}
+  .gallery h2{text-align:center;font-size:2rem;font-weight:300;letter-spacing:.2em;margin-bottom:.5rem}
+  .gallery-sub{text-align:center;color:rgba(255,255,255,.5);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3rem}
+  .gallery-filter{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+  .filter-btn{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:.4rem 1.2rem;cursor:pointer;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
+  .filter-btn.active,.filter-btn:hover{border-color:#fff;color:#fff}
+  .masonry{columns:3;gap:1rem}
+  .photo-item{break-inside:avoid;margin-bottom:1rem;position:relative;overflow:hidden;cursor:pointer}
+  .photo-item:nth-child(1){height:300px;background:linear-gradient(135deg,#667eea,#764ba2)}
+  .photo-item:nth-child(2){height:200px;background:linear-gradient(135deg,#f093fb,#f5576c)}
+  .photo-item:nth-child(3){height:350px;background:linear-gradient(135deg,#4facfe,#00f2fe)}
+  .photo-item:nth-child(4){height:250px;background:linear-gradient(135deg,#43e97b,#38f9d7)}
+  .photo-item:nth-child(5){height:200px;background:linear-gradient(135deg,#fa709a,#fee140)}
+  .photo-item:nth-child(6){height:300px;background:linear-gradient(135deg,#a18cd1,#fbc2eb)}
+  .photo-item:nth-child(7){height:180px;background:linear-gradient(135deg,#ffecd2,#fcb69f)}
+  .photo-item:nth-child(8){height:280px;background:linear-gradient(135deg,#a1c4fd,#c2e9fb)}
+  .photo-item:nth-child(9){height:220px;background:linear-gradient(135deg,#d4fc79,#96e6a1)}
+  .photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem}
+  .photo-item::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .3s}
+  .photo-item:hover::after{background:rgba(0,0,0,.4)}
+  .services{background:#1a1a1a;padding:5rem 4%;text-align:center}
+  .services h2{font-size:2rem;font-weight:300;letter-spacing:.2em;margin-bottom:.5rem}
+  .services-sub{color:rgba(255,255,255,.5);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3rem}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+  .service-card{padding:2rem;border:1px solid rgba(255,255,255,.1);transition:border-color .2s}
+  .service-card:hover{border-color:rgba(255,255,255,.4)}
+  .service-icon{font-size:2.5rem;margin-bottom:1rem}
+  .service-card h3{font-size:1rem;font-weight:400;letter-spacing:.1em;margin-bottom:.8rem}
+  .service-card p{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.7}
+  .service-price{color:#d4a853;margin-top:.8rem;font-size:.9rem}
+  .contact{padding:5rem 4%;text-align:center}
+  .contact h2{font-size:2rem;font-weight:300;letter-spacing:.2em;margin-bottom:.5rem}
+  .contact p{color:rgba(255,255,255,.6);margin-bottom:2rem}
+  .contact-email{font-size:1.5rem;color:#d4a853;text-decoration:none;letter-spacing:.1em}
+  footer{background:#000;color:rgba(255,255,255,.3);text-align:center;padding:1.5rem;font-size:.8rem;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Emma Clarke</div>
+  <ul>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-emoji">📷</div>
+  <div class="hero-content">
+    <p class="tag">Portrait &bull; Landscape &bull; Editorial</p>
+    <h1>Capturing<br>Life's Most<br>Beautiful<br>Moments</h1>
+    <p>Award-winning photographer based in New York. Specializing in portraits, landscapes, and editorial photography.</p>
+    <a href="#portfolio" class="btn-white">View Portfolio</a>
+  </div>
+</section>
+<section class="gallery" id="portfolio">
+  <h2>Portfolio</h2>
+  <p class="gallery-sub">Selected Works</p>
+  <div class="gallery-filter">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Portraits</button>
+    <button class="filter-btn">Landscapes</button>
+    <button class="filter-btn">Editorial</button>
+    <button class="filter-btn">Weddings</button>
+  </div>
+  <div class="masonry">
+    <div class="photo-item"><div class="photo-placeholder">🌄</div></div>
+    <div class="photo-item"><div class="photo-placeholder">👤</div></div>
+    <div class="photo-item"><div class="photo-placeholder">🌊</div></div>
+    <div class="photo-item"><div class="photo-placeholder">💒</div></div>
+    <div class="photo-item"><div class="photo-placeholder">🌆</div></div>
+    <div class="photo-item"><div class="photo-placeholder">🌸</div></div>
+    <div class="photo-item"><div class="photo-placeholder">🦅</div></div>
+    <div class="photo-item"><div class="photo-placeholder">🌿</div></div>
+    <div class="photo-item"><div class="photo-placeholder">✨</div></div>
+  </div>
+</section>
+<section class="services">
+  <h2>Services</h2>
+  <p class="services-sub">What I Offer</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">💍</div><h3>Wedding Photography</h3><p>Full-day coverage, edited gallery, and premium prints. Every love story deserves to be preserved perfectly.</p><p class="service-price">Starting at $2,500</p></div>
+    <div class="service-card"><div class="service-icon">👤</div><h3>Portrait Sessions</h3><p>Individual, couple, and family portraits. Studio and outdoor sessions available year-round.</p><p class="service-price">Starting at $350</p></div>
+    <div class="service-card"><div class="service-icon">��</div><h3>Corporate &amp; Editorial</h3><p>Professional headshots, team photos, and magazine-quality editorial shoots for brands and publications.</p><p class="service-price">Starting at $800</p></div>
+    <div class="service-card"><div class="service-icon">🌍</div><h3>Travel &amp; Landscape</h3><p>Fine art landscape prints available. Commission custom travel photography for your project.</p><p class="service-price">Starting at $500</p></div>
+  </div>
+</section>
+<section class="contact">
+  <h2>Let's Work Together</h2>
+  <p>Have a project in mind? I'd love to hear from you.</p>
+  <a href="mailto:emma@example.com" class="contact-email">emma@emmaclarke.com</a>
+</section>
+<footer>&copy; 2025 Emma Clarke Photography &bull; All Rights Reserved</footer>
+</body>
+</html>

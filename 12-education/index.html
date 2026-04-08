@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPath | Learn Without Limits</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;background:#fff;color:#1e293b}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;position:fixed;top:0;width:100%;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(0,0,0,.08)}
+  .logo{font-size:1.5rem;font-weight:800;color:#0ea5e9}
+  nav ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+  nav ul a{color:#64748b;text-decoration:none;font-size:.9rem;transition:color .2s}
+  nav ul a:hover{color:#0ea5e9}
+  .enroll-btn{background:#0ea5e9;color:#fff !important;padding:.5rem 1.2rem;border-radius:6px}
+  .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 5% 2rem;background:linear-gradient(135deg,#f0f9ff,#e0f2fe,#fff)}
+  .hero-content{flex:1;max-width:600px}
+  .hero-tag{display:inline-block;background:#e0f2fe;color:#0284c7;padding:.4rem 1rem;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:1.5rem}
+  .hero h1{font-size:3.5rem;font-weight:800;line-height:1.2;margin-bottom:1.5rem;color:#0f172a}
+  .hero h1 span{color:#0ea5e9}
+  .hero p{color:#64748b;font-size:1.1rem;line-height:1.7;margin-bottom:2rem}
+  .hero-form{display:flex;background:#fff;border-radius:50px;box-shadow:0 5px 30px rgba(0,0,0,.12);overflow:hidden;max-width:450px}
+  .hero-form input{flex:1;padding:.9rem 1.5rem;border:none;outline:none;font-size:.95rem;color:#333}
+  .hero-form button{background:#0ea5e9;color:#fff;border:none;padding:.9rem 1.5rem;cursor:pointer;font-weight:700;white-space:nowrap}
+  .hero-stats{display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+  .hero-stat strong{display:block;font-size:1.5rem;font-weight:800;color:#0ea5e9}
+  .hero-stat span{font-size:.8rem;color:#94a3b8}
+  .hero-visual{flex:1;display:flex;align-items:center;justify-content:center;font-size:10rem;padding:2rem}
+  .categories{padding:5rem 5%;background:#f8fafc}
+  .categories h2{text-align:center;font-size:2rem;font-weight:800;margin-bottom:.5rem}
+  .categories-sub{text-align:center;color:#64748b;margin-bottom:3rem}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem}
+  .cat-card{background:#fff;border-radius:12px;padding:1.5rem;text-align:center;border:2px solid #f1f5f9;cursor:pointer;transition:all .2s}
+  .cat-card:hover{border-color:#0ea5e9;transform:translateY(-3px)}
+  .cat-icon{font-size:2rem;margin-bottom:.7rem}
+  .cat-card h3{font-size:.9rem;font-weight:600;color:#334155}
+  .cat-count{font-size:.75rem;color:#94a3b8;margin-top:.3rem}
+  .courses{padding:5rem 5%}
+  .courses-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
+  .courses-header h2{font-size:2rem;font-weight:800}
+  .courses-header a{color:#0ea5e9;text-decoration:none;font-size:.9rem;font-weight:600}
+  .courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+  .course-card{border-radius:12px;overflow:hidden;box-shadow:0 3px 20px rgba(0,0,0,.08);transition:transform .2s;background:#fff}
+  .course-card:hover{transform:translateY(-4px)}
+  .course-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:4rem}
+  .course-body{padding:1.2rem}
+  .course-level{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+  .course-level.beginner{color:#22c55e}
+  .course-level.intermediate{color:#f59e0b}
+  .course-level.advanced{color:#ef4444}
+  .course-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;line-height:1.3}
+  .course-instructor{color:#94a3b8;font-size:.85rem;margin-bottom:.8rem}
+  .course-meta{display:flex;gap:1rem;font-size:.8rem;color:#64748b;margin-bottom:.8rem}
+  .course-footer{display:flex;justify-content:space-between;align-items:center}
+  .course-rating{color:#f59e0b;font-size:.85rem}
+  .course-price{font-weight:800;color:#0ea5e9}
+  .instructors{padding:5rem 5%;background:#f8fafc}
+  .instructors h2{text-align:center;font-size:2rem;font-weight:800;margin-bottom:3rem}
+  .instructors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2rem}
+  .instructor-card{text-align:center}
+  .inst-avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 1rem;background:linear-gradient(135deg,#0ea5e9,#38bdf8);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+  .instructor-card h3{font-weight:700;margin-bottom:.3rem}
+  .instructor-card .field{color:#0ea5e9;font-size:.85rem;margin-bottom:.3rem}
+  .instructor-card .stats{color:#94a3b8;font-size:.8rem}
+  footer{background:#0f172a;color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.85rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">📚 EduPath</div>
+  <ul>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Instructors</a></li>
+    <li><a href="#">Enterprise</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#" class="enroll-btn">Enroll Free</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">🎓 Over 10,000 courses available</div>
+    <h1>Learn the skills for <span>tomorrow's</span> jobs today</h1>
+    <p>Access world-class courses taught by industry experts. Learn at your own pace and get certified in the skills that matter most.</p>
+    <div class="hero-form">
+      <input type="text" placeholder="What do you want to learn?">
+      <button>Search</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500K+</strong><span>Students</span></div>
+      <div class="hero-stat"><strong>10K+</strong><span>Courses</span></div>
+      <div class="hero-stat"><strong>2K+</strong><span>Instructors</span></div>
+      <div class="hero-stat"><strong>150+</strong><span>Countries</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">🎓</div>
+</section>
+<section class="categories">
+  <h2>Browse by Category</h2>
+  <p class="categories-sub">Explore over 10,000 courses in our most popular categories</p>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cat-icon">💻</div><h3>Development</h3><div class="cat-count">1,234 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">📊</div><h3>Data Science</h3><div class="cat-count">456 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">🎨</div><h3>Design</h3><div class="cat-count">678 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">📱</div><h3>Mobile Dev</h3><div class="cat-count">345 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">☁️</div><h3>Cloud &amp; DevOps</h3><div class="cat-count">234 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">🔒</div><h3>Cybersecurity</h3><div class="cat-count">189 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">📈</div><h3>Business</h3><div class="cat-count">567 courses</div></div>
+    <div class="cat-card"><div class="cat-icon">🤖</div><h3>AI &amp; ML</h3><div class="cat-count">312 courses</div></div>
+  </div>
+</section>
+<section class="courses">
+  <div class="courses-header">
+    <h2>Featured Courses</h2>
+    <a href="#">View All Courses →</a>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card"><div class="course-thumb" style="background:linear-gradient(135deg,#667eea,#764ba2)">⚛️</div><div class="course-body"><p class="course-level beginner">Beginner</p><h3>Complete React Developer 2025</h3><p class="course-instructor">by John Smith</p><div class="course-meta"><span>⏱️ 40 hours</span><span>📝 125 lessons</span></div><div class="course-footer"><span class="course-rating">⭐ 4.9 (12K)</span><span class="course-price">$19.99</span></div></div></div>
+    <div class="course-card"><div class="course-thumb" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🐍</div><div class="course-body"><p class="course-level intermediate">Intermediate</p><h3>Python for Data Science &amp; Machine Learning</h3><p class="course-instructor">by Dr. Sarah Lee</p><div class="course-meta"><span>⏱️ 55 hours</span><span>📝 200 lessons</span></div><div class="course-footer"><span class="course-rating">⭐ 4.8 (8.5K)</span><span class="course-price">$24.99</span></div></div></div>
+    <div class="course-card"><div class="course-thumb" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">🔒</div><div class="course-body"><p class="course-level advanced">Advanced</p><h3>Ethical Hacking &amp; Cybersecurity Bootcamp</h3><p class="course-instructor">by Mike Johnson</p><div class="course-meta"><span>⏱️ 35 hours</span><span>📝 150 lessons</span></div><div class="course-footer"><span class="course-rating">⭐ 4.7 (5.2K)</span><span class="course-price">$29.99</span></div></div></div>
+    <div class="course-card"><div class="course-thumb" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">☁️</div><div class="course-body"><p class="course-level intermediate">Intermediate</p><h3>AWS Solutions Architect — Professional</h3><p class="course-instructor">by AWS Expert Team</p><div class="course-meta"><span>⏱️ 60 hours</span><span>📝 180 lessons</span></div><div class="course-footer"><span class="course-rating">⭐ 4.9 (15K)</span><span class="course-price">$34.99</span></div></div></div>
+  </div>
+</section>
+<section class="instructors">
+  <h2>Learn from the Best</h2>
+  <div class="instructors-grid">
+    <div class="instructor-card"><div class="inst-avatar">👨‍💻</div><h3>John Smith</h3><p class="field">Web Development</p><p class="stats">4.9 ⭐ · 45K students</p></div>
+    <div class="instructor-card"><div class="inst-avatar">👩‍🔬</div><h3>Dr. Sarah Lee</h3><p class="field">Data Science</p><p class="stats">4.8 ⭐ · 32K students</p></div>
+    <div class="instructor-card"><div class="inst-avatar">👨‍🎨</div><h3>Carlos Rivera</h3><p class="field">UI/UX Design</p><p class="stats">4.9 ⭐ · 28K students</p></div>
+    <div class="instructor-card"><div class="inst-avatar">👩‍💼</div><h3>Emma Wilson</h3><p class="field">Business &amp; Marketing</p><p class="stats">4.7 ⭐ · 19K students</p></div>
+  </div>
+</section>
+<footer>&copy; 2025 EduPath Inc. All rights reserved. | learn@edupath.com</footer>
+</body>
+</html>

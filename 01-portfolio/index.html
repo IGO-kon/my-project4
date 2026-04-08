@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Johnson | Portfolio</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;background:#0a0a0a;color:#fff}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;position:fixed;width:100%;top:0;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);z-index:100}
+  nav .logo{font-size:1.5rem;font-weight:700;color:#64ffda}
+  nav ul{list-style:none;display:flex;gap:2rem}
+  nav ul a{color:#ccd6f6;text-decoration:none;transition:color .3s}
+  nav ul a:hover{color:#64ffda}
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 4rem}
+  .hero .greeting{color:#64ffda;margin-bottom:1rem;font-size:1.1rem}
+  .hero h1{font-size:5rem;font-weight:700;line-height:1.1}
+  .hero h2{font-size:3rem;color:#8892b0;margin:.5rem 0 2rem}
+  .desc{max-width:500px;color:#8892b0;line-height:1.8;margin-bottom:2rem}
+  .btn{display:inline-block;padding:1rem 2rem;border:2px solid #64ffda;color:#64ffda;text-decoration:none;border-radius:4px;transition:all .3s}
+  .btn:hover{background:rgba(100,255,218,.1)}
+  .works{padding:5rem 4rem}
+  .works h2{font-size:2.5rem;margin-bottom:3rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+  .card{background:#112240;border-radius:8px;padding:2rem;border:1px solid #233554;transition:transform .3s}
+  .card:hover{transform:translateY(-5px)}
+  .card h3{color:#64ffda;margin-bottom:1rem}
+  .card p{color:#8892b0;line-height:1.8}
+  .skills{padding:5rem 4rem;background:#0d1117}
+  .skills h2{font-size:2.5rem;margin-bottom:2rem}
+  .tag-list{display:flex;flex-wrap:wrap;gap:1rem}
+  .tag{background:#112240;color:#64ffda;padding:.5rem 1rem;border-radius:20px;font-size:.9rem}
+  footer{text-align:center;padding:2rem;color:#8892b0;border-top:1px solid #233554}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Alex.dev</div>
+  <ul>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <p class="greeting">Hi, my name is</p>
+  <h1>Alex Johnson.</h1>
+  <h2>I build things for the web.</h2>
+  <p class="desc">I'm a full-stack developer specializing in building exceptional digital experiences. Currently focused on accessible, human-centered products.</p>
+  <a href="#works" class="btn">Check out my work!</a>
+</section>
+<section class="works" id="works">
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    <div class="card"><h3>E-Commerce Platform</h3><p>Full-stack shopping platform with React, Node.js, and MongoDB. Features authentication, payment integration, and real-time inventory management.</p></div>
+    <div class="card"><h3>Weather Dashboard</h3><p>Real-time weather app using OpenWeatherMap API with D3.js data visualization and 7-day forecast.</p></div>
+    <div class="card"><h3>Task Manager Pro</h3><p>Collaborative task management tool with drag-and-drop, WebSockets for real-time updates, and team features.</p></div>
+  </div>
+</section>
+<section class="skills" id="skills">
+  <h2>Technologies I Work With</h2>
+  <div class="tag-list">
+    <span class="tag">JavaScript</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">React</span>
+    <span class="tag">Node.js</span>
+    <span class="tag">Python</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">Docker</span>
+    <span class="tag">AWS</span>
+    <span class="tag">GraphQL</span>
+    <span class="tag">Next.js</span>
+  </div>
+</section>
+<footer id="contact">Designed &amp; Built by Alex Johnson &mdash; alex@example.com</footer>
+</body>
+</html>

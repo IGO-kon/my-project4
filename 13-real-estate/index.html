@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prestige Properties | Find Your Dream Home</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;color:#1a1a1a;background:#fff}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5%;position:fixed;top:0;width:100%;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid #f0f0f0}
+  .logo{font-size:1.4rem;font-weight:700;color:#1a3c6e}
+  .logo span{color:#c8a96e}
+  nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+  nav ul a{color:#555;text-decoration:none;font-size:.9rem;transition:color .2s}
+  nav ul a:hover{color:#1a3c6e}
+  .list-btn{background:#1a3c6e;color:#fff !important;padding:.5rem 1.2rem;border-radius:5px}
+  .hero{height:100vh;background:linear-gradient(135deg,#1a3c6e,#2d6a9f);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:6rem 2rem 2rem;position:relative;overflow:hidden}
+  .hero::before{content:'🏠';position:absolute;font-size:25rem;opacity:.04;right:-5%;bottom:-10%}
+  .hero-content{position:relative;z-index:1;max-width:700px}
+  .hero h1{font-size:3.5rem;font-weight:700;margin-bottom:1rem;line-height:1.2}
+  .hero h1 span{color:#c8a96e}
+  .hero p{font-size:1.1rem;opacity:.85;margin-bottom:2.5rem;line-height:1.7}
+  .search-panel{background:#fff;border-radius:12px;padding:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+  .search-panel select,.search-panel input{border:1px solid #e5e7eb;border-radius:8px;padding:.7rem 1rem;font-size:.9rem;color:#333;flex:1;min-width:150px;outline:none;font-family:inherit}
+  .search-panel button{background:#c8a96e;color:#fff;border:none;padding:.7rem 2rem;border-radius:8px;cursor:pointer;font-weight:700;font-size:.95rem;transition:background .2s}
+  .search-panel button:hover{background:#b8996e}
+  .stats-bar{background:#f8f9fa;padding:2rem 5%}
+  .stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;text-align:center}
+  .stat-item h3{font-size:2rem;font-weight:700;color:#1a3c6e}
+  .stat-item p{color:#777;font-size:.85rem;margin-top:.3rem}
+  .listings{padding:5rem 5%}
+  .listings-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+  .listings-header h2{font-size:2rem;font-weight:700}
+  .filter-tabs{display:flex;gap:.5rem}
+  .filter-tab{background:#f3f4f6;border:none;padding:.5rem 1rem;border-radius:20px;cursor:pointer;font-size:.85rem;transition:all .2s}
+  .filter-tab.active,.filter-tab:hover{background:#1a3c6e;color:#fff}
+  .listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+  .listing-card{border-radius:12px;overflow:hidden;box-shadow:0 3px 20px rgba(0,0,0,.08);transition:transform .2s;background:#fff;border:1px solid #f0f0f0}
+  .listing-card:hover{transform:translateY(-5px)}
+  .listing-img{height:220px;position:relative;display:flex;align-items:center;justify-content:center;font-size:6rem}
+  .listing-badge{position:absolute;top:1rem;left:1rem;padding:.3rem .8rem;border-radius:20px;font-size:.75rem;font-weight:700}
+  .badge-sale{background:#22c55e;color:#fff}
+  .badge-rent{background:#3b82f6;color:#fff}
+  .badge-new{background:#f59e0b;color:#fff}
+  .listing-heart{position:absolute;top:1rem;right:1rem;background:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+  .listing-info{padding:1.2rem}
+  .listing-price{font-size:1.5rem;font-weight:800;color:#1a3c6e;margin-bottom:.3rem}
+  .listing-address{color:#777;font-size:.9rem;margin-bottom:.8rem}
+  .listing-features{display:flex;gap:1.2rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid #f0f0f0}
+  .listing-feature{font-size:.85rem;color:#555;display:flex;align-items:center;gap:.3rem}
+  .about{padding:5rem 5%;background:#f8f9fa;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .about h2{font-size:2.2rem;font-weight:700;color:#1a3c6e;margin-bottom:1rem}
+  .about p{color:#555;line-height:1.8;margin-bottom:1.5rem}
+  .about-img{height:350px;border-radius:15px;background:linear-gradient(135deg,#1a3c6e,#2d6a9f);display:flex;align-items:center;justify-content:center;font-size:8rem}
+  .services{padding:5rem 5%;text-align:center}
+  .services h2{font-size:2rem;font-weight:700;margin-bottom:3rem}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+  .service-card{padding:2rem;border:1px solid #e5e7eb;border-radius:12px;transition:all .2s}
+  .service-card:hover{border-color:#1a3c6e;box-shadow:0 10px 30px rgba(26,60,110,.1)}
+  .service-icon{font-size:2.5rem;margin-bottom:1rem}
+  .service-card h3{font-size:1.05rem;font-weight:700;margin-bottom:.7rem;color:#1a3c6e}
+  .service-card p{color:#777;font-size:.9rem;line-height:1.7}
+  footer{background:#1a3c6e;color:rgba(255,255,255,.7);padding:3rem 5%;font-size:.9rem;text-align:center}
+  footer .footer-brand{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Prestige<span> Properties</span></div>
+  <ul>
+    <li><a href="#">Buy</a></li>
+    <li><a href="#">Rent</a></li>
+    <li><a href="#">Sell</a></li>
+    <li><a href="#">Agents</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#" class="list-btn">List Property</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Find Your <span>Dream</span><br>Home Today</h1>
+    <p>Discover thousands of properties for sale and rent. Your perfect home is just a search away.</p>
+    <div class="search-panel">
+      <select><option>Buy</option><option>Rent</option><option>Sold</option></select>
+      <input type="text" placeholder="City, neighborhood, or ZIP code">
+      <select><option>Property Type</option><option>House</option><option>Apartment</option><option>Condo</option><option>Villa</option></select>
+      <select><option>Price Range</option><option>$0 - $300K</option><option>$300K - $600K</option><option>$600K - $1M</option><option>$1M+</option></select>
+      <button>🔍 Search</button>
+    </div>
+  </div>
+</section>
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><h3>5,200+</h3><p>Properties Listed</p></div>
+    <div class="stat-item"><h3>1,800+</h3><p>Homes Sold</p></div>
+    <div class="stat-item"><h3>98%</h3><p>Client Satisfaction</p></div>
+    <div class="stat-item"><h3>25 yrs</h3><p>Experience</p></div>
+    <div class="stat-item"><h3>150+</h3><p>Expert Agents</p></div>
+  </div>
+</div>
+<section class="listings">
+  <div class="listings-header">
+    <h2>Featured Listings</h2>
+    <div class="filter-tabs">
+      <button class="filter-tab active">All</button>
+      <button class="filter-tab">For Sale</button>
+      <button class="filter-tab">For Rent</button>
+      <button class="filter-tab">New</button>
+    </div>
+  </div>
+  <div class="listings-grid">
+    <div class="listing-card"><div class="listing-img" style="background:linear-gradient(135deg,#667eea,#764ba2)"><span>🏡</span><span class="listing-badge badge-sale">For Sale</span><span class="listing-heart">❤</span></div><div class="listing-info"><div class="listing-price">$785,000</div><div class="listing-address">📍 42 Oak Avenue, Beverly Hills, CA</div><div class="listing-features"><span class="listing-feature">🛏️ 4 beds</span><span class="listing-feature">🚿 3 baths</span><span class="listing-feature">�� 2,400 sqft</span></div></div></div>
+    <div class="listing-card"><div class="listing-img" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)"><span>🏠</span><span class="listing-badge badge-rent">For Rent</span><span class="listing-heart">❤</span></div><div class="listing-info"><div class="listing-price">$3,500/mo</div><div class="listing-address">📍 15 Sunset Blvd, West Hollywood, CA</div><div class="listing-features"><span class="listing-feature">🛏️ 2 beds</span><span class="listing-feature">🚿 2 baths</span><span class="listing-feature">📐 1,200 sqft</span></div></div></div>
+    <div class="listing-card"><div class="listing-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7)"><span>🏰</span><span class="listing-badge badge-new">New</span><span class="listing-heart">❤</span></div><div class="listing-info"><div class="listing-price">$1,250,000</div><div class="listing-address">📍 8 Hillcrest Dr, Malibu, CA</div><div class="listing-features"><span class="listing-feature">🛏️ 5 beds</span><span class="listing-feature">🚿 4 baths</span><span class="listing-feature">📐 4,100 sqft</span></div></div></div>
+    <div class="listing-card"><div class="listing-img" style="background:linear-gradient(135deg,#a1c4fd,#c2e9fb)"><span>🏢</span><span class="listing-badge badge-sale">For Sale</span><span class="listing-heart">❤</span></div><div class="listing-info"><div class="listing-price">$425,000</div><div class="listing-address">📍 301 Downtown Lofts, Los Angeles, CA</div><div class="listing-features"><span class="listing-feature">🛏️ 1 bed</span><span class="listing-feature">🚿 1 bath</span><span class="listing-feature">📐 850 sqft</span></div></div></div>
+  </div>
+</section>
+<section class="about">
+  <div>
+    <h2>Why Choose Prestige Properties?</h2>
+    <p>With 25 years of expertise in luxury and residential real estate, our team of dedicated agents is committed to helping you find the perfect property that fits your lifestyle and budget.</p>
+    <p>We leverage cutting-edge technology and deep local market knowledge to give you an unmatched buying, selling, or renting experience.</p>
+    <a href="#" style="display:inline-block;background:#1a3c6e;color:#fff;padding:.8rem 2rem;border-radius:8px;text-decoration:none;font-weight:600">Meet Our Agents →</a>
+  </div>
+  <div class="about-img">🏘️</div>
+</section>
+<section class="services">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🏠</div><h3>Property Sales</h3><p>Expert guidance from listing to closing. We maximize your home's value and sell faster than the market average.</p></div>
+    <div class="service-card"><div class="service-icon">🔑</div><h3>Property Management</h3><p>Full-service property management including tenant screening, maintenance coordination, and rent collection.</p></div>
+    <div class="service-card"><div class="service-icon">💼</div><h3>Investment Advisory</h3><p>Data-driven investment strategies to help you build a profitable real estate portfolio.</p></div>
+    <div class="service-card"><div class="service-icon">🏦</div><h3>Mortgage Assistance</h3><p>Connect with trusted lenders and get pre-approved quickly to make your offer stand out.</p></div>
+  </div>
+</section>
+<footer>
+  <div class="footer-brand">Prestige Properties</div>
+  <p>123 Real Estate Ave, Beverly Hills, CA 90210 &bull; (310) 555-0100</p>
+  <p style="margin-top:.5rem">&copy; 2025 Prestige Properties. All rights reserved.</p>
+</footer>
+</body>
+</html>

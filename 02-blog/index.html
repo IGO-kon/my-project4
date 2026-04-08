@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dev Journal | Blog</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,serif;background:#fafafa;color:#333;line-height:1.8}
+  header{background:#fff;border-bottom:3px solid #e74c3c;padding:1.5rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .header-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+  .site-title{font-size:1.8rem;font-weight:700;color:#e74c3c;text-decoration:none}
+  nav a{color:#555;text-decoration:none;margin-left:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.95rem}
+  nav a:hover{color:#e74c3c}
+  .hero-banner{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;padding:5rem 2rem;text-align:center}
+  .hero-banner h1{font-size:3.5rem;margin-bottom:1rem}
+  .hero-banner p{font-size:1.2rem;opacity:.9;max-width:600px;margin:0 auto}
+  main{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:2fr 1fr;gap:3rem}
+  .post-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,.07);margin-bottom:2rem;transition:transform .2s}
+  .post-card:hover{transform:translateY(-3px)}
+  .post-card img{width:100%;height:200px;object-fit:cover;background:linear-gradient(45deg,#667eea,#764ba2)}
+  .post-img-placeholder{width:100%;height:200px;background:linear-gradient(45deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:3rem}
+  .post-body{padding:1.5rem}
+  .post-meta{color:#999;font-size:.85rem;font-family:'Segoe UI',sans-serif;margin-bottom:.5rem}
+  .post-body h2{font-size:1.4rem;margin-bottom:.8rem;color:#222}
+  .post-body h2 a{color:inherit;text-decoration:none}
+  .post-body h2 a:hover{color:#e74c3c}
+  .post-body p{color:#666;font-size:.95rem;margin-bottom:1rem}
+  .read-more{color:#e74c3c;text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:.9rem;font-weight:600}
+  .tag{display:inline-block;background:#fef0ee;color:#e74c3c;padding:.2rem .6rem;border-radius:12px;font-size:.78rem;font-family:'Segoe UI',sans-serif;margin-right:.3rem}
+  aside{font-family:'Segoe UI',sans-serif}
+  .widget{background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,.07);margin-bottom:2rem}
+  .widget h3{font-size:1.1rem;font-weight:700;border-bottom:2px solid #e74c3c;padding-bottom:.5rem;margin-bottom:1rem}
+  .widget ul{list-style:none}
+  .widget ul li{padding:.4rem 0;border-bottom:1px solid #f5f5f5}
+  .widget ul li a{color:#555;text-decoration:none}
+  .widget ul li a:hover{color:#e74c3c}
+  footer{background:#222;color:#aaa;text-align:center;padding:2rem;font-family:'Segoe UI',sans-serif;margin-top:2rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="#" class="site-title">The Dev Journal</a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+<div class="hero-banner">
+  <h1>The Dev Journal</h1>
+  <p>Thoughts on web development, design, and the ever-changing world of technology</p>
+</div>
+<main>
+  <div>
+    <article class="post-card">
+      <div class="post-img-placeholder">🚀</div>
+      <div class="post-body">
+        <div class="post-meta">June 15, 2025 &bull; <span class="tag">JavaScript</span><span class="tag">React</span></div>
+        <h2><a href="#">10 React Patterns Every Developer Should Know</a></h2>
+        <p>Discover the most powerful React patterns that senior developers use to write cleaner, more maintainable code. From compound components to render props...</p>
+        <a href="#" class="read-more">Read More &rarr;</a>
+      </div>
+    </article>
+    <article class="post-card">
+      <div class="post-img-placeholder">🎨</div>
+      <div class="post-body">
+        <div class="post-meta">June 10, 2025 &bull; <span class="tag">CSS</span><span class="tag">Design</span></div>
+        <h2><a href="#">CSS Grid vs Flexbox: When to Use Which</a></h2>
+        <p>A comprehensive guide to choosing between CSS Grid and Flexbox for your layouts. Learn the strengths of each approach with practical examples...</p>
+        <a href="#" class="read-more">Read More &rarr;</a>
+      </div>
+    </article>
+    <article class="post-card">
+      <div class="post-img-placeholder">⚡</div>
+      <div class="post-body">
+        <div class="post-meta">June 5, 2025 &bull; <span class="tag">Performance</span><span class="tag">Node.js</span></div>
+        <h2><a href="#">Optimizing Node.js Applications for Production</a></h2>
+        <p>Best practices for deploying high-performance Node.js applications. Covers clustering, caching, memory management, and monitoring strategies...</p>
+        <a href="#" class="read-more">Read More &rarr;</a>
+      </div>
+    </article>
+  </div>
+  <aside>
+    <div class="widget">
+      <h3>About Me</h3>
+      <p style="color:#666;font-size:.9rem">Hi! I'm a full-stack developer passionate about sharing knowledge and building great web experiences.</p>
+    </div>
+    <div class="widget">
+      <h3>Popular Posts</h3>
+      <ul>
+        <li><a href="#">Getting Started with TypeScript</a></li>
+        <li><a href="#">Docker for Beginners</a></li>
+        <li><a href="#">REST vs GraphQL</a></li>
+        <li><a href="#">CSS Custom Properties Guide</a></li>
+      </ul>
+    </div>
+    <div class="widget">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="#">JavaScript (24)</a></li>
+        <li><a href="#">CSS &amp; Design (18)</a></li>
+        <li><a href="#">Backend (15)</a></li>
+        <li><a href="#">DevOps (10)</a></li>
+      </ul>
+    </div>
+  </aside>
+</main>
+<footer>&copy; 2025 The Dev Journal. All rights reserved.</footer>
+</body>
+</html>

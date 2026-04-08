@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus AI | The Future of Business Intelligence</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;background:#fff;color:#1a1a2e;overflow-x:hidden}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5%;position:fixed;top:0;width:100%;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.05)}
+  .logo{font-size:1.5rem;font-weight:800;color:#1a1a2e}
+  .logo span{color:#5b21b6}
+  nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+  nav ul a{color:#555;text-decoration:none;font-size:.9rem;transition:color .2s}
+  nav ul a:hover{color:#5b21b6}
+  .nav-demo{background:#5b21b6;color:#fff !important;padding:.5rem 1.2rem;border-radius:6px}
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 5% 2rem;background:linear-gradient(180deg,#f5f3ff 0%,#fff 100%);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(91,33,182,.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .hero-content{position:relative;z-index:1;max-width:800px}
+  .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#f5f3ff;border:1px solid #ddd6fe;color:#5b21b6;padding:.4rem 1rem;border-radius:20px;font-size:.85rem;margin-bottom:2rem}
+  .hero h1{font-size:4.5rem;font-weight:800;line-height:1.1;margin-bottom:1.5rem;color:#1a1a2e}
+  .hero h1 span{background:linear-gradient(135deg,#5b21b6,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{font-size:1.2rem;color:#666;max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+  .btn-primary{background:#5b21b6;color:#fff;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;transition:background .2s}
+  .btn-primary:hover{background:#4c1d95}
+  .btn-secondary{background:#fff;color:#5b21b6;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;border:1px solid #ddd6fe;transition:all .2s}
+  .btn-secondary:hover{border-color:#5b21b6}
+  .trust-line{color:#999;font-size:.9rem}
+  .logos-bar{background:#f9f9f9;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;padding:2rem 5%;text-align:center}
+  .logos-bar p{color:#999;font-size:.85rem;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.1em}
+  .company-logos{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;opacity:.4}
+  .company-logos span{font-size:1.2rem;font-weight:700;color:#666}
+  .features{padding:6rem 5%;background:#fff}
+  .features-header{text-align:center;max-width:600px;margin:0 auto 4rem}
+  .features-header .tag{color:#5b21b6;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+  .features-header h2{font-size:2.5rem;font-weight:800;margin-bottom:1rem}
+  .features-header p{color:#666;line-height:1.7}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+  .feature-card{padding:2rem;border-radius:12px;border:1px solid #f0f0f0;transition:all .2s}
+  .feature-card:hover{border-color:#ddd6fe;box-shadow:0 10px 40px rgba(91,33,182,.08)}
+  .feature-icon{width:50px;height:50px;background:#f5f3ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.2rem}
+  .feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.7rem}
+  .feature-card p{color:#666;line-height:1.7;font-size:.95rem}
+  .dashboard-preview{padding:5rem 5%;background:linear-gradient(135deg,#1a1a2e,#312e81);text-align:center;color:#fff}
+  .dashboard-preview h2{font-size:2.5rem;font-weight:800;margin-bottom:1rem}
+  .dashboard-preview p{color:rgba(255,255,255,.7);max-width:500px;margin:0 auto 2.5rem;line-height:1.7}
+  .dashboard-mock{background:rgba(255,255,255,.05);border-radius:16px;padding:2rem;max-width:800px;margin:0 auto;border:1px solid rgba(255,255,255,.1)}
+  .mock-header{display:flex;gap:.5rem;margin-bottom:1.5rem}
+  .mock-dot{width:12px;height:12px;border-radius:50%}
+  .mock-widgets{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
+  .mock-widget{background:rgba(255,255,255,.08);border-radius:8px;padding:1.2rem;text-align:left}
+  .mock-widget .label{font-size:.7rem;opacity:.6;text-transform:uppercase;letter-spacing:.1em}
+  .mock-widget .value{font-size:1.8rem;font-weight:700;color:#a78bfa}
+  .mock-chart{background:rgba(255,255,255,.05);border-radius:8px;padding:1.5rem;height:120px;display:flex;align-items:flex-end;gap:.5rem}
+  .bar{background:linear-gradient(to top,#5b21b6,#a78bfa);border-radius:3px 3px 0 0;flex:1;opacity:.8}
+  .testimonials{padding:5rem 5%;background:#f9f9ff}
+  .testimonials h2{text-align:center;font-size:2rem;font-weight:800;margin-bottom:3rem}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+  .testimonial{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 3px 20px rgba(0,0,0,.06)}
+  .stars{color:#f59e0b;margin-bottom:1rem}
+  .testimonial p{color:#555;line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+  .reviewer{display:flex;align-items:center;gap:.8rem}
+  .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#5b21b6,#a78bfa);display:flex;align-items:center;justify-content:center}
+  .reviewer-info .name{font-weight:700;font-size:.9rem}
+  .reviewer-info .title{color:#999;font-size:.8rem}
+  footer{background:#1a1a2e;color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.85rem}
+  footer a{color:rgba(255,255,255,.5);text-decoration:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Nexus<span>AI</span></div>
+  <ul>
+    <li><a href="#">Product</a></li>
+    <li><a href="#">Solutions</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Docs</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#" class="nav-demo">Get Demo</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🚀 Now available for Enterprise</div>
+    <h1>Business Intelligence<br><span>Powered by AI</span></h1>
+    <p>Transform your raw data into actionable insights. NexusAI gives your team the intelligence to make better decisions, faster.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Start Free Trial →</a>
+      <a href="#" class="btn-secondary">▶ Watch Demo</a>
+    </div>
+    <p class="trust-line">No credit card required · 14-day free trial · Cancel anytime</p>
+  </div>
+</section>
+<div class="logos-bar">
+  <p>Trusted by 2,000+ companies worldwide</p>
+  <div class="company-logos">
+    <span>Acme Corp</span>
+    <span>TechCo</span>
+    <span>GlobalInc</span>
+    <span>StartupXYZ</span>
+    <span>MegaCorp</span>
+    <span>Innovate Ltd</span>
+  </div>
+</div>
+<section class="features">
+  <div class="features-header">
+    <p class="tag">Features</p>
+    <h2>Everything you need to understand your data</h2>
+    <p>From real-time dashboards to predictive analytics, NexusAI provides complete business intelligence for modern teams.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">📊</div><h3>Real-time Dashboards</h3><p>Beautiful, interactive dashboards that update in real-time. Share insights across your entire organization with one click.</p></div>
+    <div class="feature-card"><div class="feature-icon">🤖</div><h3>AI-Powered Predictions</h3><p>Machine learning models that learn from your data and provide accurate forecasts for revenue, churn, and growth.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔗</div><h3>200+ Integrations</h3><p>Connect to your existing tools — Salesforce, HubSpot, Stripe, PostgreSQL, and hundreds more in minutes.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔒</div><h3>Enterprise Security</h3><p>SOC 2 Type II certified. End-to-end encryption, SSO, and granular access controls to keep your data protected.</p></div>
+    <div class="feature-card"><div class="feature-icon">⚡</div><h3>Lightning Fast Queries</h3><p>Query billions of rows in seconds with our distributed compute engine. No more waiting for reports.</p></div>
+    <div class="feature-card"><div class="feature-icon">📱</div><h3>Mobile First</h3><p>Access your dashboards anywhere with our beautiful iOS and Android apps. Get alerts that matter to you.</p></div>
+  </div>
+</section>
+<section class="dashboard-preview">
+  <h2>Beautiful. Powerful. Intuitive.</h2>
+  <p>See the full picture of your business with gorgeous, customizable dashboards.</p>
+  <a href="#" class="btn-primary" style="display:inline-block;margin-bottom:2.5rem">Try it free →</a>
+  <div class="dashboard-mock">
+    <div class="mock-header">
+      <div class="mock-dot" style="background:#ff5f57"></div>
+      <div class="mock-dot" style="background:#febc2e"></div>
+      <div class="mock-dot" style="background:#28c840"></div>
+    </div>
+    <div class="mock-widgets">
+      <div class="mock-widget"><div class="label">Revenue</div><div class="value">$2.4M</div></div>
+      <div class="mock-widget"><div class="label">Users</div><div class="value">48.2K</div></div>
+      <div class="mock-widget"><div class="label">Growth</div><div class="value">+127%</div></div>
+    </div>
+    <div class="mock-chart">
+      <div class="bar" style="height:40%"></div>
+      <div class="bar" style="height:60%"></div>
+      <div class="bar" style="height:45%"></div>
+      <div class="bar" style="height:75%"></div>
+      <div class="bar" style="height:55%"></div>
+      <div class="bar" style="height:85%"></div>
+      <div class="bar" style="height:70%"></div>
+      <div class="bar" style="height:90%"></div>
+      <div class="bar" style="height:100%"></div>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <h2>Loved by data teams everywhere</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"NexusAI transformed how our team makes decisions. We went from weekly reports to real-time insights, and our revenue grew 40% in 6 months."</p><div class="reviewer"><div class="avatar">👤</div><div class="reviewer-info"><div class="name">Jennifer Park</div><div class="title">CTO, TechStartup</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"The AI predictions are eerily accurate. We predicted a major client churn 3 weeks in advance and were able to retain them. Worth every penny."</p><div class="reviewer"><div class="avatar">👤</div><div class="reviewer-info"><div class="name">Marcus Williams</div><div class="title">VP Sales, GlobalCo</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Setup took 30 minutes. We connected all our data sources and had our first custom dashboard live before lunch. The team's been obsessed ever since."</p><div class="reviewer"><div class="avatar">👤</div><div class="reviewer-info"><div class="name">Sofia Larson</div><div class="title">Head of Analytics, Retail Inc</div></div></div></div>
+  </div>
+</section>
+<footer>&copy; 2025 NexusAI Inc. &bull; <a href="#">Privacy</a> &bull; <a href="#">Terms</a> &bull; <a href="#">Security</a></footer>
+</body>
+</html>
