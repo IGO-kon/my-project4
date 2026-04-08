@@ -3,124 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vertex Solutions - コーポレートサイト</title>
+  <title>Sakura Academy - 学習プラットフォーム</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: #333; }
-    header { background: #fff; padding: 0 60px; height: 70px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: fixed; top: 0; width: 100%; z-index: 100; }
-    .logo { font-size: 1.3rem; font-weight: 800; color: #003d82; }
-    .logo span { color: #0072ce; }
-    nav a { color: #555; text-decoration: none; margin-left: 28px; font-size: 0.9rem; transition: color .2s; }
-    nav a:hover { color: #0072ce; }
-    .btn-contact { background: #0072ce; color: #fff !important; padding: 8px 20px; border-radius: 4px; }
-    .hero { background: linear-gradient(135deg, #003d82 0%, #0072ce 100%); color: #fff; min-height: 100vh; display: flex; align-items: center; padding: 80px 60px 60px; }
-    .hero-content { max-width: 600px; }
-    .hero-eyebrow { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: #7ec8f5; margin-bottom: 20px; }
-    .hero h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
-    .hero p { font-size: 1.05rem; opacity: 0.85; line-height: 1.7; margin-bottom: 36px; }
-    .hero-buttons { display: flex; gap: 16px; }
-    .btn-white { background: #fff; color: #003d82; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-weight: 700; }
-    .btn-ghost { border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 14px 28px; border-radius: 4px; text-decoration: none; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); background: #f8f9fa; }
-    .stat { padding: 40px 30px; text-align: center; border-right: 1px solid #e0e0e0; }
-    .stat:last-child { border-right: none; }
-    .stat .number { font-size: 2.5rem; font-weight: 900; color: #0072ce; }
-    .stat .label { color: #777; font-size: 0.85rem; margin-top: 4px; }
-    .services { padding: 100px 60px; background: #fff; }
-    .services h2 { text-align: center; font-size: 2rem; color: #003d82; margin-bottom: 8px; }
-    .services .subtitle { text-align: center; color: #888; margin-bottom: 60px; }
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
-    .service-card { padding: 32px; border: 1px solid #e0e0e0; border-radius: 8px; transition: box-shadow .2s, border-color .2s; cursor: pointer; }
-    .service-card:hover { box-shadow: 0 8px 24px rgba(0,114,206,0.1); border-color: #0072ce; }
-    .service-icon { font-size: 2rem; margin-bottom: 16px; }
-    .service-card h3 { color: #003d82; font-size: 1.1rem; margin-bottom: 10px; }
-    .service-card p { color: #666; font-size: 0.9rem; line-height: 1.6; }
-    .cta-section { background: linear-gradient(135deg, #003d82, #0072ce); color: #fff; padding: 80px 60px; text-align: center; }
-    .cta-section h2 { font-size: 2rem; margin-bottom: 12px; }
-    .cta-section p { opacity: 0.85; margin-bottom: 32px; }
-    footer { background: #1a1a2e; color: #aaa; padding: 40px 60px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 30px; }
-    .footer-logo { font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
-    .footer-col h5 { color: #fff; margin-bottom: 12px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-    .footer-col a { display: block; color: #aaa; text-decoration: none; font-size: 0.85rem; margin-bottom: 6px; }
-    .footer-bottom { text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 20px; max-width: 1100px; margin: 0 auto; }
+    body { font-family: 'Segoe UI', sans-serif; color: #2d3748; }
+    header { background: #fff; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: #553c9a; }
+    .logo .cherry { color: #f687b3; }
+    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+    .btn-signup { background: #553c9a; color: #fff !important; padding: 8px 20px; border-radius: 6px; }
+    .hero { background: linear-gradient(135deg, #553c9a 0%, #805ad5 60%, #d6bcfa 100%); padding: 80px 40px; color: #fff; text-align: center; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 16px; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+    .search-box { display: flex; max-width: 500px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; }
+    .search-box input { flex: 1; border: none; padding: 14px 16px; font-size: 0.9rem; outline: none; color: #333; }
+    .search-box button { background: #f6ad55; border: none; padding: 14px 24px; font-weight: 700; cursor: pointer; color: #2d3748; }
+    .stats { display: flex; justify-content: center; gap: 60px; padding: 30px; background: #fff; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat .n { font-size: 1.6rem; font-weight: 800; color: #553c9a; }
+    .stat .l { font-size: 0.8rem; color: #888; }
+    .section { padding: 70px 40px; max-width: 1100px; margin: 0 auto; }
+    .section h2 { font-size: 1.8rem; margin-bottom: 8px; color: #2d3748; }
+    .section .sub { color: #888; margin-bottom: 40px; }
+    .courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+    .course-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform .2s; cursor: pointer; }
+    .course-card:hover { transform: translateY(-4px); }
+    .course-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .course-body { padding: 18px; }
+    .course-tag { font-size: 0.72rem; color: #805ad5; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .course-body h3 { font-size: 0.95rem; margin-bottom: 8px; line-height: 1.4; }
+    .course-meta { font-size: 0.8rem; color: #999; display: flex; justify-content: space-between; margin-top: 10px; }
+    .course-price { color: #553c9a; font-weight: 700; }
+    .stars { color: #f6ad55; }
+    .categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .cat-btn { background: #f7f3ff; color: #553c9a; border: 1px solid #d6bcfa; padding: 10px 20px; border-radius: 30px; font-size: 0.85rem; cursor: pointer; transition: all .2s; }
+    .cat-btn:hover { background: #553c9a; color: #fff; }
+    footer { background: #2d3748; color: #a0aec0; text-align: center; padding: 30px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Vertex<span>.</span></div>
+    <div class="logo"><span class="cherry">🌸</span> Sakura Academy</div>
     <nav>
-      <a href="#">会社概要</a>
-      <a href="#">サービス</a>
-      <a href="#">実績</a>
-      <a href="#">採用情報</a>
-      <a href="#" class="btn-contact">お問い合わせ</a>
+      <a href="#">コース</a>
+      <a href="#">講師</a>
+      <a href="#">企業向け</a>
+      <a href="#">ログイン</a>
+      <a href="#" class="btn-signup">無料登録</a>
     </nav>
   </header>
 
   <div class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">イノベーションで未来を創る</p>
-      <h1>デジタル変革を、<br>一緒に実現しよう</h1>
-      <p>Vertex Solutionsは、最先端のテクノロジーとビジネスコンサルティングで、企業のデジタルトランスフォーメーションを強力にサポートします。</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-white">サービスを見る</a>
-        <a href="#" class="btn-ghost">お問い合わせ</a>
-      </div>
+    <h1>学ぶ楽しさを、すべての人に</h1>
+    <p>1,500以上のコースで、プログラミング・デザイン・ビジネスなど、あなたのスキルアップを全力サポートします。</p>
+    <div class="search-box">
+      <input type="text" placeholder="学びたいスキルを検索...">
+      <button>検索</button>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="number">500+</div><div class="label">導入企業数</div></div>
-    <div class="stat"><div class="number">15年</div><div class="label">業界での実績</div></div>
-    <div class="stat"><div class="number">98%</div><div class="label">顧客満足度</div></div>
-    <div class="stat"><div class="number">50+</div><div class="label">専門エキスパート</div></div>
+    <div class="stat"><div class="n">1,500+</div><div class="l">コース数</div></div>
+    <div class="stat"><div class="n">320,000+</div><div class="l">学習者</div></div>
+    <div class="stat"><div class="n">450+</div><div class="l">優秀な講師</div></div>
+    <div class="stat"><div class="n">95%</div><div class="l">満足度</div></div>
   </div>
 
-  <div class="services">
-    <h2>私たちのサービス</h2>
-    <p class="subtitle">お客様のビジネス課題に合わせた最適なソリューションを提供します</p>
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-icon">💡</div>
-        <h3>デジタル戦略コンサルティング</h3>
-        <p>DX推進のロードマップ策定から実行まで、戦略的に伴走します。</p>
+  <div class="section">
+    <h2>人気のコース</h2>
+    <p class="sub">今最も注目されているコースをチェック</p>
+    <div class="courses">
+      <div class="course-card">
+        <div class="course-thumb" style="background:#ebf8ff;">💻</div>
+        <div class="course-body">
+          <p class="course-tag">プログラミング</p>
+          <h3>Python完全マスター：データサイエンスからAIまで</h3>
+          <div class="course-meta"><span class="stars">★★★★★ 4.9</span><span class="course-price">¥4,800</span></div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">☁️</div>
-        <h3>クラウドマイグレーション</h3>
-        <p>安全で効率的なクラウド移行を実現し、コスト削減と俊敏性向上を支援します。</p>
+      <div class="course-card">
+        <div class="course-thumb" style="background:#fff5f5;">🎨</div>
+        <div class="course-body">
+          <p class="course-tag">デザイン</p>
+          <h3>UIデザイン入門：Figmaで作るプロ品質のデザイン</h3>
+          <div class="course-meta"><span class="stars">★★★★★ 4.8</span><span class="course-price">¥3,980</span></div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>AI・データ分析</h3>
-        <p>ビジネスデータからインサイトを抽出し、意思決定を高度化します。</p>
+      <div class="course-card">
+        <div class="course-thumb" style="background:#f0fff4;">📈</div>
+        <div class="course-body">
+          <p class="course-tag">マーケティング</p>
+          <h3>デジタルマーケティング戦略：SNSからSEOまで</h3>
+          <div class="course-meta"><span class="stars">★★★★☆ 4.7</span><span class="course-price">¥5,200</span></div>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🔒</div>
-        <h3>サイバーセキュリティ</h3>
-        <p>最新の脅威に対応したセキュリティ体制を構築し、企業資産を守ります。</p>
+      <div class="course-card">
+        <div class="course-thumb" style="background:#fffff0;">🤖</div>
+        <div class="course-body">
+          <p class="course-tag">AI・機械学習</p>
+          <h3>生成AI活用術：ChatGPTとCopilotを使いこなす</h3>
+          <div class="course-meta"><span class="stars">★★★★★ 4.9</span><span class="course-price">¥6,800</span></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="cta-section">
-    <h2>まず、お話を聞かせてください</h2>
-    <p>無料の初回相談で、貴社の課題と最適なソリューションをご提案します</p>
-    <a href="#" class="btn-white">無料相談を予約する</a>
+    <h2 style="margin-top:60px;">カテゴリから探す</h2>
+    <div class="categories">
+      <button class="cat-btn">💻 プログラミング</button>
+      <button class="cat-btn">🎨 デザイン</button>
+      <button class="cat-btn">📊 データサイエンス</button>
+      <button class="cat-btn">🤖 AI・機械学習</button>
+      <button class="cat-btn">📈 マーケティング</button>
+      <button class="cat-btn">🗣 語学</button>
+      <button class="cat-btn">🎵 音楽</button>
+      <button class="cat-btn">📷 写真・動画</button>
+    </div>
   </div>
 
   <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">Vertex Solutions</div>
-        <p style="font-size:0.85rem; line-height:1.7;">企業のデジタル変革を支援する、信頼のパートナー。東京・大阪・名古屋に拠点を持ち、全国対応可能です。</p>
-      </div>
-      <div class="footer-col"><h5>サービス</h5><a href="#">DX戦略</a><a href="#">クラウド</a><a href="#">AI活用</a><a href="#">セキュリティ</a></div>
-      <div class="footer-col"><h5>会社情報</h5><a href="#">会社概要</a><a href="#">実績</a><a href="#">採用</a><a href="#">ニュース</a></div>
-      <div class="footer-col"><h5>サポート</h5><a href="#">お問い合わせ</a><a href="#">よくある質問</a><a href="#">プライバシー</a></div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2025 Vertex Solutions Inc. All rights reserved.</p></div>
+    <p>&copy; 2025 Sakura Academy - すべての人に学ぶ機会を</p>
   </footer>
 </body>
 </html>
