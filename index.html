@@ -3,105 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
+  <title>ShopNow - オンラインショップ</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; background: #fafafa; color: #222; }
-    header { background: #fff; border-bottom: 2px solid #e44d26; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-size: 1.6rem; color: #e44d26; }
-    nav a { color: #555; text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
-    nav a:hover { color: #e44d26; }
-    .hero { background: linear-gradient(135deg, #e44d26, #f16529); color: #fff; padding: 60px 40px; text-align: center; }
-    .hero h2 { font-size: 2.4rem; margin-bottom: 12px; }
-    .hero p { font-size: 1.1rem; opacity: 0.9; }
-    .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
-    .posts { }
-    .post { background: #fff; border-radius: 8px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .post-img { height: 180px; background: linear-gradient(135deg, #667eea, #764ba2); }
-    .post-body { padding: 20px; }
-    .post-tag { font-size: 0.75rem; color: #e44d26; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .post h3 { font-size: 1.2rem; margin-bottom: 8px; }
-    .post p { color: #666; font-size: 0.9rem; line-height: 1.6; }
-    .post-meta { margin-top: 12px; font-size: 0.8rem; color: #999; }
-    .sidebar { }
-    .widget { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .widget h4 { margin-bottom: 12px; color: #e44d26; font-size: 1rem; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-    .widget ul { list-style: none; }
-    .widget ul li { padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; color: #555; }
-    footer { background: #222; color: #aaa; text-align: center; padding: 30px; margin-top: 40px; font-size: 0.9rem; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #1a1a2e; color: #fff; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { font-size: 1.4rem; font-weight: 700; color: #e94560; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+    nav a:hover { color: #e94560; }
+    .cart { background: #e94560; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; }
+    .banner { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); color: #fff; padding: 80px 40px; text-align: center; }
+    .banner h2 { font-size: 2.8rem; margin-bottom: 12px; }
+    .banner p { color: #aaa; font-size: 1.1rem; margin-bottom: 28px; }
+    .btn-primary { display: inline-block; background: #e94560; color: #fff; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-weight: 600; }
+    .section { padding: 50px 40px; max-width: 1100px; margin: 0 auto; }
+    .section h3 { font-size: 1.5rem; margin-bottom: 28px; font-weight: 700; }
+    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform .2s; cursor: pointer; }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .product-info { padding: 16px; }
+    .product-info h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }
+    .old-price { color: #999; text-decoration: line-through; font-size: 0.85rem; margin-left: 8px; }
+    .add-cart { width: 100%; margin-top: 12px; background: #1a1a2e; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+    .add-cart:hover { background: #e94560; }
+    footer { background: #1a1a2e; color: #888; text-align: center; padding: 30px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>📝 Tech Blog</h1>
+    <div class="logo">🛒 ShopNow</div>
     <nav>
       <a href="#">ホーム</a>
       <a href="#">カテゴリ</a>
-      <a href="#">アーカイブ</a>
-      <a href="#">お問い合わせ</a>
+      <a href="#">セール</a>
+      <a href="#">お気に入り</a>
+      <a href="#" class="cart">🛒 カート (0)</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <h2>最新のテクノロジーを探る</h2>
-    <p>Web開発・AI・クラウドに関する最新情報をお届けします</p>
+  <div class="banner">
+    <h2>夏の大セール 🌞</h2>
+    <p>全商品最大50%OFF！今すぐお得な商品をチェック</p>
+    <a href="#" class="btn-primary">今すぐショッピング</a>
   </div>
 
-  <div class="container">
-    <main class="posts">
-      <article class="post">
-        <div class="post-img"></div>
-        <div class="post-body">
-          <p class="post-tag">JavaScript</p>
-          <h3>React 19の新機能を徹底解説</h3>
-          <p>React 19がリリースされ、多くの新機能と改善が加えられました。Server ComponentsやActionsなどの主要な変更点を詳しく見ていきます。</p>
-          <p class="post-meta">2025年4月1日 | 読了時間: 8分</p>
+  <div class="section">
+    <h3>🔥 人気商品</h3>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-img" style="background:#fef3c7;">🎧</div>
+        <div class="product-info">
+          <h4>ワイヤレスイヤホン Pro</h4>
+          <span class="price">¥8,980</span><span class="old-price">¥14,800</span>
+          <button class="add-cart">カートに追加</button>
         </div>
-      </article>
-      <article class="post">
-        <div class="post-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-        <div class="post-body">
-          <p class="post-tag">AI</p>
-          <h3>AIを使ったコード自動生成の現状と未来</h3>
-          <p>GitHub CopilotやChatGPTなどのAIツールがどのようにソフトウェア開発を変えているかを分析します。</p>
-          <p class="post-meta">2025年3月25日 | 読了時間: 12分</p>
-        </div>
-      </article>
-      <article class="post">
-        <div class="post-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
-        <div class="post-body">
-          <p class="post-tag">クラウド</p>
-          <h3>AWS vs Azure vs GCP 2025年版比較</h3>
-          <p>3大クラウドプロバイダーをコスト・パフォーマンス・サービスの観点から徹底比較します。</p>
-          <p class="post-meta">2025年3月18日 | 読了時間: 15分</p>
-        </div>
-      </article>
-    </main>
-
-    <aside class="sidebar">
-      <div class="widget">
-        <h4>カテゴリ</h4>
-        <ul>
-          <li>JavaScript (24)</li>
-          <li>Python (18)</li>
-          <li>AI / ML (15)</li>
-          <li>クラウド (12)</li>
-          <li>セキュリティ (9)</li>
-        </ul>
       </div>
-      <div class="widget">
-        <h4>人気記事</h4>
-        <ul>
-          <li>TypeScript入門ガイド</li>
-          <li>Docker完全マスター</li>
-          <li>Gitベストプラクティス</li>
-        </ul>
+      <div class="product-card">
+        <div class="product-img" style="background:#ede9fe;">⌚</div>
+        <div class="product-info">
+          <h4>スマートウォッチ X2</h4>
+          <span class="price">¥24,800</span><span class="old-price">¥38,000</span>
+          <button class="add-cart">カートに追加</button>
+        </div>
       </div>
-    </aside>
+      <div class="product-card">
+        <div class="product-img" style="background:#dcfce7;">💻</div>
+        <div class="product-info">
+          <h4>薄型ノートPC 15"</h4>
+          <span class="price">¥89,800</span><span class="old-price">¥120,000</span>
+          <button class="add-cart">カートに追加</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:#fee2e2;">📷</div>
+        <div class="product-info">
+          <h4>ミラーレスカメラ</h4>
+          <span class="price">¥67,800</span><span class="old-price">¥92,000</span>
+          <button class="add-cart">カートに追加</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Tech Blog - すべての記事はCC BY 4.0ライセンス</p>
+    <p>&copy; 2025 ShopNow - 安心・安全なオンラインショッピング</p>
   </footer>
 </body>
 </html>
