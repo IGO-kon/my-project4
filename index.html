@@ -3,89 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Bella Cucina - イタリアンレストラン</title>
+  <title>Nexus App - 革新的なタスク管理アプリ</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; background: #fdf6ec; color: #3d2b1f; }
-    header { position: fixed; top: 0; width: 100%; background: rgba(61,43,31,0.95); color: #f5e6c8; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-    .logo { font-size: 1.5rem; font-style: italic; color: #d4a843; }
-    nav a { color: #f5e6c8; text-decoration: none; margin-left: 24px; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
-    nav a:hover { color: #d4a843; }
-    .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), linear-gradient(135deg, #8B4513, #D2691E, #CD853F); display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; }
-    .hero h2 { font-size: 3.5rem; font-style: italic; margin-bottom: 16px; color: #f5e6c8; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-    .hero p { font-size: 1.2rem; color: #f5e6c8; margin-bottom: 32px; opacity: 0.9; }
-    .btn-gold { display: inline-block; background: #d4a843; color: #3d2b1f; padding: 14px 36px; border-radius: 2px; text-decoration: none; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
-    .section { padding: 80px 40px; text-align: center; }
-    .section h3 { font-size: 2rem; font-style: italic; margin-bottom: 8px; color: #8B4513; }
-    .section p.subtitle { color: #888; margin-bottom: 40px; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
-    .menu-item { background: #fff; border-radius: 4px; padding: 30px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid #d4a843; }
-    .menu-item .emoji { font-size: 2.5rem; margin-bottom: 12px; }
-    .menu-item h4 { font-size: 1.1rem; margin-bottom: 8px; color: #3d2b1f; }
-    .menu-item p { color: #777; font-size: 0.9rem; line-height: 1.6; }
-    .menu-item .price { color: #d4a843; font-weight: 700; margin-top: 10px; }
-    .cta { background: #3d2b1f; color: #f5e6c8; padding: 80px 40px; text-align: center; }
-    .cta h3 { font-size: 2rem; font-style: italic; margin-bottom: 12px; color: #d4a843; }
-    .cta p { margin-bottom: 24px; opacity: 0.8; }
-    footer { background: #2a1f14; color: #777; text-align: center; padding: 30px; font-size: 0.85rem; }
+    body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; }
+    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 10px rgba(0,0,0,0.08); z-index: 100; }
+    .logo { font-size: 1.3rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+    .btn-nav { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff !important; padding: 8px 20px; border-radius: 20px; }
+    .hero { min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 80px 20px 40px; }
+    .hero-content { max-width: 700px; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.3); }
+    .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; }
+    .hero p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 36px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: #764ba2; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; }
+    .btn-outline { border: 2px solid #fff; color: #fff; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; }
+    .features { padding: 100px 40px; background: #f8f9ff; }
+    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
+    .features .sub { text-align: center; color: #888; margin-bottom: 60px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+    .feature { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(102,126,234,0.1); }
+    .feature .icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .feature h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
+    .feature p { color: #777; font-size: 0.9rem; line-height: 1.6; }
+    .pricing { padding: 100px 40px; text-align: center; }
+    .pricing h2 { font-size: 2rem; margin-bottom: 12px; }
+    .plans { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+    .plan { background: #fff; border: 2px solid #eee; border-radius: 16px; padding: 32px 28px; min-width: 220px; }
+    .plan.popular { border-color: #764ba2; position: relative; }
+    .plan .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #764ba2; color: #fff; font-size: 0.75rem; padding: 4px 16px; border-radius: 20px; }
+    .plan .price { font-size: 2.2rem; font-weight: 800; color: #764ba2; margin: 12px 0; }
+    .plan ul { list-style: none; text-align: left; }
+    .plan ul li { padding: 6px 0; font-size: 0.9rem; color: #555; }
+    .plan ul li::before { content: "✓ "; color: #764ba2; }
+    .plan .cta { display: block; margin-top: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    footer { background: #1a1a2e; color: #888; text-align: center; padding: 30px; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">La Bella Cucina</div>
+    <div class="logo">⚡ Nexus</div>
     <nav>
-      <a href="#">メニュー</a>
-      <a href="#">予約</a>
-      <a href="#">アクセス</a>
-      <a href="#">私たちについて</a>
+      <a href="#">機能</a>
+      <a href="#">料金</a>
+      <a href="#">事例</a>
+      <a href="#" class="btn-nav">無料で始める</a>
     </nav>
   </header>
 
   <div class="hero">
-    <h2>本格イタリアンの味わい</h2>
-    <p>新鮮な食材と伝統のレシピで、忘れられない食体験をお届けします</p>
-    <a href="#" class="btn-gold">ご予約はこちら</a>
-  </div>
-
-  <div class="section" style="background:#fff;">
-    <h3>本日のおすすめ</h3>
-    <p class="subtitle">シェフが厳選した季節の一品</p>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <div class="emoji">🍝</div>
-        <h4>カルボナーラ</h4>
-        <p>自家製パンチェッタと濃厚クリームソース。伝統のローマスタイルで仕上げました。</p>
-        <p class="price">¥1,680</p>
-      </div>
-      <div class="menu-item">
-        <div class="emoji">🍕</div>
-        <h4>マルゲリータ</h4>
-        <p>石窯で焼いた本格ナポリピッツァ。フレッシュモッツァレラとバジルが香ります。</p>
-        <p class="price">¥1,480</p>
-      </div>
-      <div class="menu-item">
-        <div class="emoji">🥩</div>
-        <h4>オッソブーコ</h4>
-        <p>スネ肉の煮込みミラノ風。グレモラータを添えて。</p>
-        <p class="price">¥2,480</p>
-      </div>
-      <div class="menu-item">
-        <div class="emoji">🍮</div>
-        <h4>ティラミス</h4>
-        <p>マスカルポーネとエスプレッソが奏でる至福のデザート。</p>
-        <p class="price">¥780</p>
+    <div class="hero-content">
+      <span class="badge">🚀 新機能 AI自動タスク分析リリース</span>
+      <h1>チームの生産性を<br>10倍にするアプリ</h1>
+      <p>Nexusは、AIを活用したタスク管理で、あなたのチームがより速く、よりスマートに働けるようサポートします。</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-white">無料で試す</a>
+        <a href="#" class="btn-outline">デモを見る ▶</a>
       </div>
     </div>
   </div>
 
-  <div class="cta">
-    <h3>特別なひとときを</h3>
-    <p>記念日、誕生日、接待など特別なシーンにもご利用いただけます</p>
-    <a href="#" class="btn-gold">テーブルを予約する</a>
+  <div class="features">
+    <h2>選ばれる理由</h2>
+    <p class="sub">10,000社以上が導入しているNexusの主な機能</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon">��</div>
+        <h3>AI自動スケジューリング</h3>
+        <p>AIがチームメンバーの稼働状況を分析し、最適なタスク割り当てを自動で行います。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📊</div>
+        <h3>リアルタイム分析</h3>
+        <p>プロジェクトの進捗をリアルタイムで可視化。ボトルネックを即座に特定できます。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔗</div>
+        <h3>シームレス連携</h3>
+        <p>Slack、Notion、GitHubなど100以上のツールと連携し、ワークフローを統合します。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <h2>シンプルな料金プラン</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>スターター</h3>
+        <div class="price">無料</div>
+        <ul>
+          <li>5ユーザーまで</li>
+          <li>基本タスク管理</li>
+          <li>3プロジェクト</li>
+        </ul>
+        <a href="#" class="cta">始める</a>
+      </div>
+      <div class="plan popular">
+        <span class="tag">人気</span>
+        <h3>プロ</h3>
+        <div class="price">¥2,980<span style="font-size:0.9rem;font-weight:400;">/月</span></div>
+        <ul>
+          <li>無制限ユーザー</li>
+          <li>AI機能すべて</li>
+          <li>無制限プロジェクト</li>
+          <li>優先サポート</li>
+        </ul>
+        <a href="#" class="cta">14日間無料試用</a>
+      </div>
+    </div>
   </div>
 
   <footer>
-    <p>📍 東京都渋谷区〇〇1-2-3 | �� 03-XXXX-XXXX | &copy; 2025 La Bella Cucina</p>
+    <p>&copy; 2025 Nexus Inc. | プライバシーポリシー | 利用規約</p>
   </footer>
 </body>
 </html>
