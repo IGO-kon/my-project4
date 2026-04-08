@@ -3,119 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexus App - 革新的なタスク管理アプリ</title>
+  <title>LensLife - フォトギャラリー</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; }
-    header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 10px rgba(0,0,0,0.08); z-index: 100; }
-    .logo { font-size: 1.3rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
-    .btn-nav { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff !important; padding: 8px 20px; border-radius: 20px; }
-    .hero { min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 80px 20px 40px; }
-    .hero-content { max-width: 700px; }
-    .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.3); }
-    .hero h1 { font-size: 3.2rem; margin-bottom: 20px; line-height: 1.2; }
-    .hero p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 36px; line-height: 1.7; }
-    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-white { background: #fff; color: #764ba2; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; }
-    .btn-outline { border: 2px solid #fff; color: #fff; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; }
-    .features { padding: 100px 40px; background: #f8f9ff; }
-    .features h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
-    .features .sub { text-align: center; color: #888; margin-bottom: 60px; }
-    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
-    .feature { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(102,126,234,0.1); }
-    .feature .icon { font-size: 2.2rem; margin-bottom: 16px; }
-    .feature h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
-    .feature p { color: #777; font-size: 0.9rem; line-height: 1.6; }
-    .pricing { padding: 100px 40px; text-align: center; }
-    .pricing h2 { font-size: 2rem; margin-bottom: 12px; }
-    .plans { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-    .plan { background: #fff; border: 2px solid #eee; border-radius: 16px; padding: 32px 28px; min-width: 220px; }
-    .plan.popular { border-color: #764ba2; position: relative; }
-    .plan .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #764ba2; color: #fff; font-size: 0.75rem; padding: 4px 16px; border-radius: 20px; }
-    .plan .price { font-size: 2.2rem; font-weight: 800; color: #764ba2; margin: 12px 0; }
-    .plan ul { list-style: none; text-align: left; }
-    .plan ul li { padding: 6px 0; font-size: 0.9rem; color: #555; }
-    .plan ul li::before { content: "✓ "; color: #764ba2; }
-    .plan .cta { display: block; margin-top: 20px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    footer { background: #1a1a2e; color: #888; text-align: center; padding: 30px; font-size: 0.85rem; }
+    body { background: #111; color: #fff; font-family: 'Segoe UI', sans-serif; }
+    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 100; }
+    .logo { font-size: 1.3rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; }
+    .logo span { color: #f0b429; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 24px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+    nav a:hover { color: #f0b429; }
+    .hero { height: 100vh; background: linear-gradient(45deg, #111 0%, #222 50%, #111 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 60px; }
+    .hero h1 { font-size: 3.5rem; font-weight: 200; letter-spacing: 8px; margin-bottom: 20px; }
+    .hero p { color: #aaa; font-size: 1rem; letter-spacing: 2px; margin-bottom: 36px; }
+    .btn { display: inline-block; border: 1px solid #f0b429; color: #f0b429; padding: 12px 32px; text-decoration: none; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; transition: all .2s; }
+    .btn:hover { background: #f0b429; color: #111; }
+    .gallery-section { padding: 80px 20px; }
+    .gallery-section h2 { text-align: center; font-weight: 200; font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 12px; }
+    .filter-bar { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn { background: none; border: 1px solid #444; color: #aaa; padding: 6px 20px; cursor: pointer; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: all .2s; border-radius: 2px; }
+    .filter-btn.active, .filter-btn:hover { border-color: #f0b429; color: #f0b429; }
+    .masonry { columns: 3; column-gap: 12px; max-width: 1200px; margin: 0 auto; }
+    .photo { break-inside: avoid; margin-bottom: 12px; position: relative; overflow: hidden; cursor: pointer; }
+    .photo-inner { width: 100%; display: block; background: #222; transition: transform .3s; }
+    .photo:hover .photo-inner { transform: scale(1.03); }
+    .photo-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); opacity: 0; transition: opacity .3s; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .photo:hover .photo-overlay { opacity: 1; }
+    .photo-overlay p { font-size: 0.85rem; color: #f0b429; letter-spacing: 2px; }
+    .h-short { height: 200px; }
+    .h-medium { height: 280px; }
+    .h-tall { height: 360px; }
+    footer { text-align: center; padding: 40px; color: #555; border-top: 1px solid #222; font-size: 0.85rem; }
+    @media (max-width: 768px) { .masonry { columns: 2; } .hero h1 { font-size: 2rem; } }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">⚡ Nexus</div>
+    <div class="logo">Lens<span>Life</span></div>
     <nav>
-      <a href="#">機能</a>
-      <a href="#">料金</a>
-      <a href="#">事例</a>
-      <a href="#" class="btn-nav">無料で始める</a>
+      <a href="#">作品</a>
+      <a href="#">コレクション</a>
+      <a href="#">購入</a>
+      <a href="#">お問い合わせ</a>
     </nav>
   </header>
 
   <div class="hero">
-    <div class="hero-content">
-      <span class="badge">🚀 新機能 AI自動タスク分析リリース</span>
-      <h1>チームの生産性を<br>10倍にするアプリ</h1>
-      <p>Nexusは、AIを活用したタスク管理で、あなたのチームがより速く、よりスマートに働けるようサポートします。</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-white">無料で試す</a>
-        <a href="#" class="btn-outline">デモを見る ▶</a>
-      </div>
+    <div>
+      <h1>CAPTURING<br>MOMENTS</h1>
+      <p>光と影が語る、瞬間の美しさ</p>
+      <a href="#gallery" class="btn">ギャラリーを見る</a>
     </div>
   </div>
 
-  <div class="features">
-    <h2>選ばれる理由</h2>
-    <p class="sub">10,000社以上が導入しているNexusの主な機能</p>
-    <div class="feature-grid">
-      <div class="feature">
-        <div class="icon">��</div>
-        <h3>AI自動スケジューリング</h3>
-        <p>AIがチームメンバーの稼働状況を分析し、最適なタスク割り当てを自動で行います。</p>
-      </div>
-      <div class="feature">
-        <div class="icon">📊</div>
-        <h3>リアルタイム分析</h3>
-        <p>プロジェクトの進捗をリアルタイムで可視化。ボトルネックを即座に特定できます。</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔗</div>
-        <h3>シームレス連携</h3>
-        <p>Slack、Notion、GitHubなど100以上のツールと連携し、ワークフローを統合します。</p>
-      </div>
+  <div class="gallery-section" id="gallery">
+    <h2>GALLERY</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active">すべて</button>
+      <button class="filter-btn">風景</button>
+      <button class="filter-btn">ポートレート</button>
+      <button class="filter-btn">建築</button>
+      <button class="filter-btn">ストリート</button>
     </div>
-  </div>
-
-  <div class="pricing">
-    <h2>シンプルな料金プラン</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>スターター</h3>
-        <div class="price">無料</div>
-        <ul>
-          <li>5ユーザーまで</li>
-          <li>基本タスク管理</li>
-          <li>3プロジェクト</li>
-        </ul>
-        <a href="#" class="cta">始める</a>
+    <div class="masonry">
+      <div class="photo">
+        <div class="photo-inner h-tall" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);"></div>
+        <div class="photo-overlay"><p>🌃 夜景</p></div>
       </div>
-      <div class="plan popular">
-        <span class="tag">人気</span>
-        <h3>プロ</h3>
-        <div class="price">¥2,980<span style="font-size:0.9rem;font-weight:400;">/月</span></div>
-        <ul>
-          <li>無制限ユーザー</li>
-          <li>AI機能すべて</li>
-          <li>無制限プロジェクト</li>
-          <li>優先サポート</li>
-        </ul>
-        <a href="#" class="cta">14日間無料試用</a>
+      <div class="photo">
+        <div class="photo-inner h-short" style="background: linear-gradient(135deg, #2d6a4f, #40916c, #74c69d);"></div>
+        <div class="photo-overlay"><p>🌿 森林</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-medium" style="background: linear-gradient(135deg, #d62828, #f77f00, #fcbf49);"></div>
+        <div class="photo-overlay"><p>🌅 夕焼け</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-medium" style="background: linear-gradient(135deg, #4a4e69, #9a8c98, #c9ada7);"></div>
+        <div class="photo-overlay"><p>👤 ポートレート</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-tall" style="background: linear-gradient(135deg, #0077b6, #0096c7, #00b4d8);"></div>
+        <div class="photo-overlay"><p>🌊 海</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-short" style="background: linear-gradient(135deg, #6d6875, #b5838d, #e5989b);"></div>
+        <div class="photo-overlay"><p>🌸 花</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-medium" style="background: linear-gradient(135deg, #333, #555, #777);"></div>
+        <div class="photo-overlay"><p>🏙 建築</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-short" style="background: linear-gradient(135deg, #264653, #2a9d8f, #e9c46a);"></div>
+        <div class="photo-overlay"><p>🌄 山</p></div>
+      </div>
+      <div class="photo">
+        <div class="photo-inner h-tall" style="background: linear-gradient(135deg, #1b1b2f, #2e2e5e, #4a4a8a);"></div>
+        <div class="photo-overlay"><p>✨ 星空</p></div>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Nexus Inc. | プライバシーポリシー | 利用規約</p>
+    <p>&copy; 2025 LensLife Photography | すべての写真の著作権は撮影者に帰属します</p>
   </footer>
 </body>
 </html>
