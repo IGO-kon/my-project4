@@ -3,104 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Fest 2025 - イベントサイト</title>
+  <title>HomeQuest - 不動産サイト</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0c0c14; color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
-    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; background: rgba(12,12,20,0.9); backdrop-filter: blur(10px); z-index: 100; }
-    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 3px; color: #f6c90e; }
-    nav a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.85rem; letter-spacing: 1px; }
-    .btn-ticket { background: #f6c90e; color: #0c0c14 !important; padding: 8px 20px; border-radius: 4px; font-weight: 800; }
-    .hero { min-height: 100vh; background: linear-gradient(135deg, #0c0c14, #1a0a2e, #0c1428); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 40px; position: relative; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(246,201,14,0.1) 0%, transparent 60%), radial-gradient(ellipse at 70% 40%, rgba(147,51,234,0.1) 0%, transparent 60%); }
-    .event-date { display: inline-block; background: rgba(246,201,14,0.15); border: 1px solid rgba(246,201,14,0.4); color: #f6c90e; padding: 8px 24px; border-radius: 4px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; }
-    .hero h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
-    .hero h1 span { color: #f6c90e; }
-    .hero h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 6px; color: #aaa; margin-bottom: 32px; }
-    .hero p { color: #888; max-width: 500px; line-height: 1.7; margin-bottom: 40px; }
-    .hero-actions { display: flex; gap: 16px; }
-    .btn-gold { background: #f6c90e; color: #0c0c14; padding: 14px 36px; text-decoration: none; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
-    .btn-ghost { border: 1px solid #444; color: #ccc; padding: 14px 36px; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
-    .countdown { display: flex; gap: 24px; margin: 50px auto; justify-content: center; }
-    .count-item { text-align: center; }
-    .count-item .number { font-size: 3rem; font-weight: 900; color: #f6c90e; line-height: 1; }
-    .count-item .label { font-size: 0.7rem; color: #666; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-    .section { padding: 80px 40px; }
-    .section h2 { text-align: center; font-size: 1.8rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; color: #f6c90e; }
-    .section .sub { text-align: center; color: #666; font-size: 0.85rem; margin-bottom: 50px; }
-    .lineup { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-    .artist { background: #111; border: 1px solid #222; border-radius: 8px; padding: 24px; text-align: center; transition: border-color .2s; cursor: pointer; }
-    .artist:hover { border-color: #f6c90e; }
-    .artist .av { font-size: 2.5rem; margin-bottom: 12px; }
-    .artist h4 { font-size: 0.95rem; margin-bottom: 4px; }
-    .artist p { color: #666; font-size: 0.8rem; }
-    .artist .day { margin-top: 8px; font-size: 0.75rem; color: #f6c90e; }
-    .schedule { max-width: 700px; margin: 0 auto; }
-    .day-schedule { margin-bottom: 32px; }
-    .day-schedule h3 { color: #f6c90e; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; border-left: 3px solid #f6c90e; padding-left: 12px; margin-bottom: 16px; }
-    .schedule-item { display: flex; gap: 20px; padding: 12px 0; border-bottom: 1px solid #1a1a1a; }
-    .schedule-item .time { color: #666; font-size: 0.85rem; min-width: 70px; }
-    .schedule-item .info h5 { font-size: 0.9rem; margin-bottom: 4px; }
-    .schedule-item .info p { color: #666; font-size: 0.8rem; }
-    footer { text-align: center; padding: 40px; color: #444; border-top: 1px solid #1a1a1a; font-size: 0.85rem; }
+    body { font-family: 'Segoe UI', sans-serif; color: #2d3748; background: #f7f8fc; }
+    header { background: #fff; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: #2b6cb0; }
+    .logo span { color: #e53e3e; }
+    nav a { color: #555; text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: color .2s; }
+    nav a:hover { color: #2b6cb0; }
+    .btn-list { background: #2b6cb0; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-weight: 600; }
+    .hero { background: linear-gradient(135deg, #2b6cb0, #2c5282); color: #fff; padding: 80px 40px; text-align: center; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 16px; font-weight: 800; }
+    .hero p { opacity: 0.85; max-width: 500px; margin: 0 auto 36px; font-size: 1.05rem; }
+    .search-box { background: #fff; border-radius: 12px; padding: 24px; max-width: 700px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; }
+    .search-field { flex: 1; min-width: 140px; }
+    .search-field label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    .search-field select, .search-field input { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; font-size: 0.9rem; color: #333; outline: none; }
+    .search-field select:focus, .search-field input:focus { border-color: #2b6cb0; }
+    .search-btn { background: #e53e3e; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.9rem; align-self: flex-end; }
+    .stats-bar { background: #2c5282; color: #fff; padding: 20px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-item .n { font-size: 1.5rem; font-weight: 800; color: #90cdf4; }
+    .stat-item .l { font-size: 0.8rem; opacity: 0.7; }
+    .section { padding: 70px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .section-header h2 { font-size: 1.6rem; font-weight: 700; }
+    .section-header a { color: #2b6cb0; text-decoration: none; font-size: 0.9rem; }
+    .properties { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .property-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.07); transition: transform .2s, box-shadow .2s; cursor: pointer; }
+    .property-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+    .prop-img { height: 200px; position: relative; }
+    .prop-badge { position: absolute; top: 12px; left: 12px; background: #2b6cb0; color: #fff; font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; font-weight: 600; }
+    .prop-badge.sale { background: #e53e3e; }
+    .prop-body { padding: 18px; }
+    .prop-price { font-size: 1.4rem; font-weight: 800; color: #2b6cb0; margin-bottom: 8px; }
+    .prop-title { font-size: 0.95rem; margin-bottom: 8px; }
+    .prop-address { color: #888; font-size: 0.85rem; margin-bottom: 12px; }
+    .prop-features { display: flex; gap: 16px; font-size: 0.82rem; color: #666; border-top: 1px solid #f0f0f0; padding-top: 12px; }
+    .prop-feature { display: flex; align-items: center; gap: 4px; }
+    footer { background: #1a202c; color: #a0aec0; padding: 40px; text-align: center; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">FUTURE FEST</div>
+    <div class="logo">Home<span>Quest</span></div>
     <nav>
-      <a href="#">ラインナップ</a>
-      <a href="#">スケジュール</a>
-      <a href="#">アクセス</a>
-      <a href="#" class="btn-ticket">チケット購入</a>
+      <a href="#">売買物件</a>
+      <a href="#">賃貸物件</a>
+      <a href="#">新築・分譲</a>
+      <a href="#">会社概要</a>
+      <a href="#" class="btn-list">無料査定</a>
     </nav>
   </header>
 
   <div class="hero">
-    <span class="event-date">📅 2025年7月18日–20日 | 幕張メッセ</span>
-    <h1>FUTURE<br><span>FEST</span></h1>
-    <h2>2025</h2>
-    <p>3日間、50組以上のアーティストが集結する日本最大の音楽フェスティバル。あなたの夏を変える体験がここに。</p>
-    <div class="hero-actions">
-      <a href="#" class="btn-gold">チケット購入</a>
-      <a href="#" class="btn-ghost">詳細を見る</a>
+    <h1>🏠 あなたの理想の家が、ここにある</h1>
+    <p>全国200,000件以上の物件情報から、あなたにぴったりの住まいを見つけましょう。</p>
+    <div class="search-box">
+      <div class="search-field">
+        <label>エリア</label>
+        <select><option>東京都</option><option>神奈川県</option><option>大阪府</option><option>愛知県</option></select>
+      </div>
+      <div class="search-field">
+        <label>物件種別</label>
+        <select><option>すべて</option><option>マンション</option><option>一戸建て</option><option>土地</option></select>
+      </div>
+      <div class="search-field">
+        <label>価格上限</label>
+        <select><option>上限なし</option><option>3,000万円</option><option>5,000万円</option><option>1億円</option></select>
+      </div>
+      <button class="search-btn">🔍 検索</button>
     </div>
-    <div class="countdown">
-      <div class="count-item"><div class="number">101</div><div class="label">Days</div></div>
-      <div class="count-item"><div class="number">12</div><div class="label">Hours</div></div>
-      <div class="count-item"><div class="number">34</div><div class="label">Minutes</div></div>
-      <div class="count-item"><div class="number">56</div><div class="label">Seconds</div></div>
-    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="n">200,000+</div><div class="l">掲載物件数</div></div>
+    <div class="stat-item"><div class="n">15,000+</div><div class="l">成約実績</div></div>
+    <div class="stat-item"><div class="n">98%</div><div class="l">顧客満足度</div></div>
+    <div class="stat-item"><div class="n">全国</div><div class="l">47都道府県対応</div></div>
   </div>
 
   <div class="section">
-    <h2>Lineup</h2>
-    <p class="sub">2025年の出演アーティスト一覧</p>
-    <div class="lineup">
-      <div class="artist"><div class="av">🎤</div><h4>THE NEON SKY</h4><p>ヘッドライナー</p><p class="day">Day 1 | MAIN STAGE</p></div>
-      <div class="artist"><div class="av">🎸</div><h4>ELECTRIC PULSE</h4><p>ロック</p><p class="day">Day 1 | STAGE B</p></div>
-      <div class="artist"><div class="av">🎹</div><h4>LUNA WAVE</h4><p>エレクトロニック</p><p class="day">Day 2 | MAIN STAGE</p></div>
-      <div class="artist"><div class="av">🥁</div><h4>STORM RIDERS</h4><p>ヘビーメタル</p><p class="day">Day 2 | STAGE C</p></div>
-      <div class="artist"><div class="av">🎵</div><h4>CRYSTAL ECHO</h4><p>インディーポップ</p><p class="day">Day 3 | MAIN STAGE</p></div>
-      <div class="artist"><div class="av">🎺</div><h4>JAZZ HORIZON</h4><p>ジャズフュージョン</p><p class="day">Day 3 | STAGE A</p></div>
+    <div class="section-header">
+      <h2>おすすめ物件</h2>
+      <a href="#">すべて見る →</a>
     </div>
-  </div>
-
-  <div class="section" style="background: #0d0d18;">
-    <h2>Schedule</h2>
-    <p class="sub">3日間のタイムテーブル</p>
-    <div class="schedule">
-      <div class="day-schedule">
-        <h3>Day 1 - 7月18日(金)</h3>
-        <div class="schedule-item"><span class="time">15:00</span><div class="info"><h5>オープン &amp; ウェルカムセッション</h5></div></div>
-        <div class="schedule-item"><span class="time">17:00</span><div class="info"><h5>ELECTRIC PULSE</h5><p>Stage B</p></div></div>
-        <div class="schedule-item"><span class="time">20:00</span><div class="info"><h5>THE NEON SKY (ヘッドライナー)</h5><p>Main Stage</p></div></div>
+    <div class="properties">
+      <div class="property-card">
+        <div class="prop-img" style="background: linear-gradient(135deg, #bee3f8, #63b3ed);">
+          <span class="prop-badge">売買</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">¥4,580万円</div>
+          <div class="prop-title">世田谷区〇〇 | 3LDK マンション</div>
+          <div class="prop-address">📍 東京都世田谷区〇〇1-2-3</div>
+          <div class="prop-features">
+            <span class="prop-feature">🛏 3部屋</span>
+            <span class="prop-feature">🚿 2浴室</span>
+            <span class="prop-feature">📐 82m²</span>
+            <span class="prop-feature">🚉 徒歩5分</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="prop-img" style="background: linear-gradient(135deg, #c6f6d5, #68d391);">
+          <span class="prop-badge">賃貸</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">¥15.8万円/月</div>
+          <div class="prop-title">港区〇〇 | 2LDK タワーマンション</div>
+          <div class="prop-address">📍 東京都港区〇〇3-4-5</div>
+          <div class="prop-features">
+            <span class="prop-feature">🛏 2部屋</span>
+            <span class="prop-feature">🚿 1浴室</span>
+            <span class="prop-feature">📐 68m²</span>
+            <span class="prop-feature">🚉 徒歩3分</span>
+          </div>
+        </div>
+      </div>
+      <div class="property-card">
+        <div class="prop-img" style="background: linear-gradient(135deg, #fbd38d, #f6ad55);">
+          <span class="prop-badge sale">新築</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-price">¥6,200万円</div>
+          <div class="prop-title">横浜市〇〇 | 4LDK 新築一戸建て</div>
+          <div class="prop-address">📍 神奈川県横浜市〇〇2-3-4</div>
+          <div class="prop-features">
+            <span class="prop-feature">🛏 4部屋</span>
+            <span class="prop-feature">🚿 2浴室</span>
+            <span class="prop-feature">📐 120m²</span>
+            <span class="prop-feature">🚉 徒歩8分</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Future Fest | info@futurefest.jp | 幕張メッセ、千葉県千葉市</p>
+    <p>&copy; 2025 HomeQuest Co., Ltd. | 宅地建物取引業者 東京都知事(1)第XXXXX号</p>
   </footer>
 </body>
 </html>
