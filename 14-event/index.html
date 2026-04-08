@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechConf 2025 | The Future of Technology</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',sans-serif;background:#0a0a1a;color:#fff;overflow-x:hidden}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5%;position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,26,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .logo{font-size:1.4rem;font-weight:800;letter-spacing:.05em}
+  .logo span{color:#6c63ff}
+  nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+  nav ul a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;transition:color .2s}
+  nav ul a:hover{color:#fff}
+  .register-btn{background:linear-gradient(135deg,#6c63ff,#a855f7);color:#fff !important;padding:.5rem 1.2rem;border-radius:6px}
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 5% 2rem;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(108,99,255,.2) 0%,transparent 60%)}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,.05) 1px,transparent 1px);background-size:50px 50px}
+  .hero-content{position:relative;z-index:1}
+  .event-date{display:inline-block;background:rgba(108,99,255,.2);border:1px solid rgba(108,99,255,.4);color:#a78bfa;padding:.5rem 1.5rem;border-radius:20px;font-size:.85rem;margin-bottom:1.5rem;letter-spacing:.1em}
+  .hero h1{font-size:5rem;font-weight:900;line-height:1;margin-bottom:1rem}
+  .hero h1 .gradient{background:linear-gradient(135deg,#6c63ff,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-subtitle{font-size:1.5rem;font-weight:300;color:rgba(255,255,255,.7);margin-bottom:1rem}
+  .hero p{color:rgba(255,255,255,.6);font-size:1.1rem;max-width:600px;margin:0 auto 2rem;line-height:1.7}
+  .hero-meta{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+  .meta-item{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);font-size:.9rem}
+  .meta-icon{font-size:1.2rem}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .btn-gradient{background:linear-gradient(135deg,#6c63ff,#a855f7);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-weight:700;border-radius:8px;transition:opacity .2s}
+  .btn-gradient:hover{opacity:.85}
+  .btn-ghost{border:1px solid rgba(255,255,255,.2);color:#fff;padding:1rem 2.5rem;text-decoration:none;border-radius:8px;transition:border-color .2s}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.6)}
+  .countdown{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:15px;padding:2rem;max-width:600px;margin:3rem auto 0;display:flex;justify-content:center;gap:2rem}
+  .count-item{text-align:center}
+  .count-item .num{font-size:3rem;font-weight:900;color:#6c63ff;display:block}
+  .count-item .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4)}
+  .speakers{padding:5rem 5%;background:#0d0d1f}
+  .speakers h2{text-align:center;font-size:2.5rem;font-weight:800;margin-bottom:.5rem}
+  .speakers-sub{text-align:center;color:rgba(255,255,255,.5);margin-bottom:3rem;font-size:.9rem}
+  .speakers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+  .speaker-card{background:rgba(255,255,255,.04);border-radius:12px;padding:2rem;text-align:center;border:1px solid rgba(255,255,255,.08);transition:border-color .2s}
+  .speaker-card:hover{border-color:rgba(108,99,255,.5)}
+  .speaker-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;background:linear-gradient(135deg,#6c63ff,#a855f7)}
+  .speaker-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+  .speaker-company{color:#6c63ff;font-size:.85rem;margin-bottom:.3rem}
+  .speaker-card .topic{color:rgba(255,255,255,.5);font-size:.8rem}
+  .schedule{padding:5rem 5%}
+  .schedule h2{text-align:center;font-size:2.5rem;font-weight:800;margin-bottom:3rem}
+  .day-tabs{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+  .day-tab{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);padding:.5rem 1.5rem;border-radius:20px;cursor:pointer;font-size:.85rem;transition:all .2s}
+  .day-tab.active,.day-tab:hover{background:#6c63ff;border-color:#6c63ff;color:#fff}
+  .schedule-list{max-width:800px;margin:0 auto}
+  .schedule-item{display:flex;gap:2rem;padding:1.5rem;border-bottom:1px solid rgba(255,255,255,.06);align-items:flex-start;flex-wrap:wrap}
+  .schedule-time{min-width:100px;color:#6c63ff;font-weight:700;font-size:.9rem}
+  .schedule-info h4{font-weight:700;margin-bottom:.3rem}
+  .schedule-info .speaker-name{color:rgba(255,255,255,.5);font-size:.85rem}
+  .schedule-tag{margin-left:auto;background:rgba(108,99,255,.2);color:#a78bfa;padding:.2rem .7rem;border-radius:10px;font-size:.75rem;white-space:nowrap}
+  .tickets{padding:5rem 5%;background:#0d0d1f;text-align:center}
+  .tickets h2{font-size:2.5rem;font-weight:800;margin-bottom:3rem}
+  .tickets-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:900px;margin:0 auto}
+  .ticket-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem;transition:border-color .2s}
+  .ticket-card.featured{border-color:#6c63ff;background:rgba(108,99,255,.1)}
+  .ticket-card h3{font-size:1.1rem;margin-bottom:.5rem}
+  .ticket-price{font-size:2.8rem;font-weight:800;color:#6c63ff;margin:1rem 0}
+  .ticket-price span{font-size:1rem;color:rgba(255,255,255,.4);font-weight:400}
+  .ticket-features{list-style:none;text-align:left;margin:1rem 0;color:rgba(255,255,255,.7)}
+  .ticket-features li{padding:.4rem 0}
+  .ticket-features li::before{content:'✓ ';color:#6c63ff;font-weight:700}
+  .ticket-btn{display:block;background:linear-gradient(135deg,#6c63ff,#a855f7);color:#fff;padding:.8rem;border-radius:8px;text-decoration:none;font-weight:700;margin-top:1.5rem}
+  .ticket-card:not(.featured) .ticket-btn{background:rgba(255,255,255,.1)}
+  footer{background:#050510;color:rgba(255,255,255,.3);text-align:center;padding:2rem;font-size:.85rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Tech<span>Conf</span> 2025</div>
+  <ul>
+    <li><a href="#">Speakers</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Workshops</a></li>
+    <li><a href="#">Venue</a></li>
+    <li><a href="#">Sponsors</a></li>
+    <li><a href="#" class="register-btn">Register Now</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="event-date">📅 September 15-17, 2025</div>
+    <h1><span class="gradient">TechConf</span><br>2025</h1>
+    <p class="hero-subtitle">The World's Premier Technology Conference</p>
+    <p>3 days. 200+ speakers. 15,000+ attendees. The conversations that shape the future of technology.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-icon">📍</span>San Francisco, CA</div>
+      <div class="meta-item"><span class="meta-icon">👥</span>15,000+ attendees</div>
+      <div class="meta-item"><span class="meta-icon">��</span>200+ speakers</div>
+    </div>
+    <div class="hero-btns">
+      <a href="#" class="btn-gradient">Register Now →</a>
+      <a href="#" class="btn-ghost">View Schedule</a>
+    </div>
+    <div class="countdown">
+      <div class="count-item"><span class="num">142</span><span class="label">Days</span></div>
+      <div class="count-item"><span class="num">08</span><span class="label">Hours</span></div>
+      <div class="count-item"><span class="num">34</span><span class="label">Minutes</span></div>
+      <div class="count-item"><span class="num">21</span><span class="label">Seconds</span></div>
+    </div>
+  </div>
+</section>
+<section class="speakers">
+  <h2>Keynote Speakers</h2>
+  <p class="speakers-sub">Industry leaders sharing their vision for tomorrow</p>
+  <div class="speakers-grid">
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Dr. Elena Vasquez</h3><p class="speaker-company">OpenMind AI</p><p class="topic">The Next Frontier of General AI</p></div>
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>James Park</h3><p class="speaker-company">QuantumTech</p><p class="topic">Quantum Computing in 2030</p></div>
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Maya Patel</h3><p class="speaker-company">CloudNova</p><p class="topic">Decentralized Cloud Infrastructure</p></div>
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Tom Anderson</h3><p class="speaker-company">CyberShield</p><p class="topic">Zero-Trust Security Architecture</p></div>
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Aisha Johnson</h3><p class="speaker-company">BioTech Labs</p><p class="topic">AI &amp; Healthcare Innovation</p></div>
+    <div class="speaker-card"><div class="speaker-avatar">👤</div><h3>Carlos Rivera</h3><p class="speaker-company">WebX Corp</p><p class="topic">The Spatial Web &amp; AR Future</p></div>
+  </div>
+</section>
+<section class="schedule">
+  <h2>Conference Schedule</h2>
+  <div class="day-tabs">
+    <button class="day-tab active">Day 1 - Sep 15</button>
+    <button class="day-tab">Day 2 - Sep 16</button>
+    <button class="day-tab">Day 3 - Sep 17</button>
+  </div>
+  <div class="schedule-list">
+    <div class="schedule-item"><div class="schedule-time">9:00 AM</div><div class="schedule-info"><h4>Opening Keynote: The Future is Now</h4><p class="speaker-name">Dr. Elena Vasquez · Main Stage</p></div><span class="schedule-tag">Keynote</span></div>
+    <div class="schedule-item"><div class="schedule-time">11:00 AM</div><div class="schedule-info"><h4>Quantum Computing: Beyond Classical Limits</h4><p class="speaker-name">James Park · Hall A</p></div><span class="schedule-tag">Technical</span></div>
+    <div class="schedule-item"><div class="schedule-time">1:00 PM</div><div class="schedule-info"><h4>Networking Lunch</h4><p class="speaker-name">Main Lobby &amp; Terrace</p></div><span class="schedule-tag">Networking</span></div>
+    <div class="schedule-item"><div class="schedule-time">2:30 PM</div><div class="schedule-info"><h4>AI Ethics &amp; Responsible Development</h4><p class="speaker-name">Panel Discussion · Hall B</p></div><span class="schedule-tag">Panel</span></div>
+    <div class="schedule-item"><div class="schedule-time">4:30 PM</div><div class="schedule-info"><h4>Workshop: Building with LLMs</h4><p class="speaker-name">Hands-on Lab · Workshop Room 1</p></div><span class="schedule-tag">Workshop</span></div>
+  </div>
+</section>
+<section class="tickets">
+  <h2>Get Your Tickets</h2>
+  <div class="tickets-grid">
+    <div class="ticket-card"><h3>Early Bird</h3><div class="ticket-price">$299<span>/person</span></div><ul class="ticket-features"><li>All keynote sessions</li><li>Exhibition access</li><li>Conference bag</li><li>3 meals</li></ul><a href="#" class="ticket-btn">Get Ticket</a></div>
+    <div class="ticket-card featured"><h3>Full Access</h3><div class="ticket-price">$599<span>/person</span></div><ul class="ticket-features"><li>Everything in Early Bird</li><li>All workshops</li><li>Speaker dinner access</li><li>Recording access</li><li>Certificate</li></ul><a href="#" class="ticket-btn">Get Ticket</a></div>
+    <div class="ticket-card"><h3>VIP</h3><div class="ticket-price">$1,299<span>/person</span></div><ul class="ticket-features"><li>Everything in Full Access</li><li>Speaker meet &amp; greet</li><li>VIP lounge access</li><li>1-on-1 sessions</li></ul><a href="#" class="ticket-btn">Get Ticket</a></div>
+  </div>
+</section>
+<footer>&copy; 2025 TechConf. All rights reserved. | info@techconf2025.com</footer>
+</body>
+</html>

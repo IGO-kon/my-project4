@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Bella Cucina | Italian Restaurant</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Georgia',serif;color:#333;background:#fffdf9}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;position:fixed;top:0;width:100%;z-index:100;transition:background .3s}
+  nav.scrolled{background:rgba(20,10,5,.95);backdrop-filter:blur(5px)}
+  .logo{font-size:1.8rem;color:#d4a853;font-style:italic}
+  nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
+  nav ul a{color:#fff;text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:.9rem;letter-spacing:.05em;transition:color .2s}
+  nav ul a:hover{color:#d4a853}
+  .nav-reserve{border:1px solid #d4a853;color:#d4a853 !important;padding:.5rem 1.2rem;border-radius:3px}
+  .hero{height:100vh;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.6)),url('') center/cover;background-color:#1a0a00;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,168,83,.1) 0%,rgba(0,0,0,.7) 70%)}
+  .hero-content{position:relative;z-index:1}
+  .hero-tag{color:#d4a853;letter-spacing:.3em;font-size:.85rem;font-family:'Segoe UI',sans-serif;margin-bottom:1rem;text-transform:uppercase}
+  .hero h1{font-size:5rem;line-height:1.1;margin-bottom:1rem;font-style:italic}
+  .hero p{font-size:1.1rem;opacity:.85;margin-bottom:2.5rem;max-width:500px;line-height:1.8}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .btn-gold{background:#d4a853;color:#1a0a00;padding:.9rem 2rem;text-decoration:none;font-family:'Segoe UI',sans-serif;font-weight:700;letter-spacing:.05em;transition:background .2s}
+  .btn-gold:hover{background:#c49840}
+  .btn-outline{border:1px solid rgba(255,255,255,.5);color:#fff;padding:.9rem 2rem;text-decoration:none;font-family:'Segoe UI',sans-serif;transition:all .2s}
+  .btn-outline:hover{background:rgba(255,255,255,.1)}
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:500px}
+  .about-img{background:linear-gradient(135deg,#8B4513,#D2691E);display:flex;align-items:center;justify-content:center;font-size:8rem}
+  .about-text{background:#1a0a00;color:#e8d5b7;padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center}
+  .gold-line{width:60px;height:2px;background:#d4a853;margin:1.5rem 0}
+  .about-text h2{font-size:2.5rem;color:#fff;font-style:italic}
+  .about-text p{line-height:1.9;font-size:1rem;opacity:.85}
+  .menu{padding:5rem 5%;background:#fffdf9}
+  .menu h2{text-align:center;font-size:2.5rem;font-style:italic;margin-bottom:.5rem}
+  .menu-sub{text-align:center;color:#d4a853;letter-spacing:.2em;font-size:.8rem;font-family:'Segoe UI',sans-serif;text-transform:uppercase;margin-bottom:3rem}
+  .menu-tabs{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem}
+  .tab{background:none;border:1px solid #d4a853;color:#d4a853;padding:.5rem 1.5rem;cursor:pointer;font-family:Georgia,serif;font-size:.9rem;transition:all .2s}
+  .tab.active,.tab:hover{background:#d4a853;color:#fff}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0}
+  .menu-item{padding:1.5rem 2rem;border-bottom:1px solid #f0e8d8;display:flex;gap:1rem;align-items:flex-start}
+  .menu-item-icon{font-size:2.5rem;min-width:50px}
+  .menu-item-info h4{font-size:1.1rem;margin-bottom:.3rem}
+  .menu-item-info p{color:#777;font-size:.9rem;line-height:1.6}
+  .menu-item-price{margin-left:auto;font-size:1.1rem;color:#d4a853;font-weight:700;white-space:nowrap}
+  .reservation{background:#1a0a00;color:#e8d5b7;padding:5rem 5%;text-align:center}
+  .reservation h2{font-size:2.5rem;font-style:italic;color:#fff;margin-bottom:.5rem}
+  .reservation p{margin-bottom:2rem;opacity:.8}
+  .reserve-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
+  .reserve-form input,.reserve-form select{padding:.8rem 1rem;border:1px solid #d4a853;background:transparent;color:#e8d5b7;flex:1;min-width:150px;font-family:Georgia,serif}
+  .reserve-form input::placeholder{color:#aaa}
+  .reserve-form button{background:#d4a853;color:#1a0a00;border:none;padding:.8rem 2rem;cursor:pointer;font-weight:700;font-family:Georgia,serif;font-size:1rem}
+  footer{background:#0d0500;color:#888;text-align:center;padding:2rem;font-family:'Segoe UI',sans-serif;font-size:.9rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">La Bella Cucina</div>
+  <ul>
+    <li><a href="#">Story</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#" class="nav-reserve">Reserve a Table</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Est. 1985 &bull; Rome Inspired</p>
+    <h1>An Authentic<br>Italian Experience</h1>
+    <p>Where every dish tells the story of Italian tradition, crafted with passion and the finest ingredients.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-gold">View Our Menu</a>
+      <a href="#" class="btn-outline">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+<div class="about">
+  <div class="about-img">🍝</div>
+  <div class="about-text">
+    <h2>Our Story</h2>
+    <div class="gold-line"></div>
+    <p>Founded by Chef Marco Rossi in 1985, La Bella Cucina has been bringing the authentic flavors of Rome to our community for four decades. Every recipe is passed down through generations, every ingredient sourced with the utmost care.</p>
+    <br>
+    <p>Our dining room is a warm embrace — a place where families gather, love stories unfold, and memories are made over bowls of handmade pasta and glasses of fine Chianti.</p>
+  </div>
+</div>
+<section class="menu">
+  <h2>Our Menu</h2>
+  <p class="menu-sub">Crafted with Tradition</p>
+  <div class="menu-tabs">
+    <button class="tab active">Antipasti</button>
+    <button class="tab">Pasta</button>
+    <button class="tab">Mains</button>
+    <button class="tab">Desserts</button>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item"><span class="menu-item-icon">🥗</span><div class="menu-item-info"><h4>Caprese Classico</h4><p>Fresh buffalo mozzarella, heirloom tomatoes, basil, extra virgin olive oil</p></div><span class="menu-item-price">$14</span></div>
+    <div class="menu-item"><span class="menu-item-icon">🦑</span><div class="menu-item-info"><h4>Calamari Fritti</h4><p>Crispy fried squid with lemon aioli and marinara sauce</p></div><span class="menu-item-price">$16</span></div>
+    <div class="menu-item"><span class="menu-item-icon">🍞</span><div class="menu-item-info"><h4>Bruschetta al Pomodoro</h4><p>Grilled sourdough with diced tomatoes, garlic, fresh basil</p></div><span class="menu-item-price">$10</span></div>
+    <div class="menu-item"><span class="menu-item-icon">🍄</span><div class="menu-item-info"><h4>Funghi Trifolati</h4><p>Sautéed wild mushrooms with garlic, parsley, and white wine</p></div><span class="menu-item-price">$13</span></div>
+  </div>
+</section>
+<section class="reservation">
+  <h2>Make a Reservation</h2>
+  <p>Join us for an unforgettable evening. We look forward to welcoming you.</p>
+  <div class="reserve-form">
+    <input type="text" placeholder="Your Name">
+    <input type="date">
+    <select><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option><option>8:30 PM</option></select>
+    <input type="number" placeholder="Guests" min="1" max="20">
+    <button>Reserve Now</button>
+  </div>
+</section>
+<footer>&copy; 2025 La Bella Cucina. All rights reserved. &bull; 123 Via Roma, New York, NY &bull; (212) 555-0123</footer>
+</body>
+</html>
