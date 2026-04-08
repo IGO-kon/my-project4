@@ -1,0 +1,71 @@
+name: Create 15 Site Branches
+
+on:
+  push:
+    branches:
+      - copilot/create-15-types-of-websites
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create 15 site branches from their respective commits
+        run: |
+          # Map of branch name to commit SHA
+          declare -A branches=(
+            ["site/portfolio"]="ba88d1fa118826c760f768b8161cea4931fd332c"
+            ["site/blog"]="bffb1cd5ace59284e01e09a8d842223ef5a7bf2b"
+            ["site/ecommerce"]="8e1189a623080522331f3407ec1e9d7e183732cd"
+            ["site/restaurant"]="78173ec6ab273c05fdcec197ad71fd03c36c5404"
+            ["site/landing"]="493d2cce146b9687d0a27f38c4b74c6fb1a28f92"
+            ["site/gallery"]="5c023d272275a5e7d3948144dd8f3f15c5588cf9"
+            ["site/news"]="0a2d6ed09558f66085f39b2d05c8be4acc8d7e9d"
+            ["site/corporate"]="38b7e71cbb4fc696d4ce958a19ad33a843e89f38"
+            ["site/education"]="d49b356f08caffda6fb04177a1f1286cf5551bfc"
+            ["site/travel"]="f4e7962560c678bad20373b7c1cafba4c35cd2ab"
+            ["site/music"]="84260e2f7af201056fed615f754615b2d3921669"
+            ["site/event"]="58a8f400e4aa0982a612b78cc4b6095e74e32f45"
+            ["site/realestate"]="1a862839ed18ac3769f297235b554f69ce3221c2"
+            ["site/healthcare"]="d2d410ebe3ecbfa2f1e761d20a3b0b319504729c"
+            ["site/nonprofit"]="977eb927ecc6852e723fd4d1d65d97aa8a04463d"
+          )
+
+          # Get the full SHAs by running git log
+          echo "Getting full commit SHAs..."
+          git log --oneline -20
+
+          for branch in "${!branches[@]}"; do
+            short_sha="${branches[$branch]}"
+            # Get full SHA from short SHA
+            full_sha=$(git rev-parse "$short_sha" 2>/dev/null || echo "$short_sha")
+            
+            echo "Creating branch: $branch from $full_sha"
+            
+            # Check if branch already exists
+            if git ls-remote --exit-code --heads origin "$branch" > /dev/null 2>&1; then
+              echo "Branch $branch already exists, skipping..."
+            else
+              git push origin "$full_sha:refs/heads/$branch"
+              echo "✅ Created branch: $branch"
+            fi
+          done
+
+      - name: List created branches
+        run: |
+          echo "=== All branches in repository ==="
+          git ls-remote --heads origin | grep "site/" | sort
