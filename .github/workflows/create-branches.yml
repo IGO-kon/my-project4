@@ -1,10 +1,10 @@
 name: Create 15 Site Branches
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - copilot/create-15-types-of-websites
-  workflow_dispatch:
 
 permissions:
   contents: write
