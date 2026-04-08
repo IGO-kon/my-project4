@@ -3,132 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echo Waves - ミュージックバンド</title>
+  <title>Future Fest 2025 - イベントサイト</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0a0a0a; color: #fff; font-family: 'Segoe UI', sans-serif; }
-    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #222; }
-    .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: 2px; background: linear-gradient(90deg, #e040fb, #7c4dff, #40c4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    nav a { color: #aaa; text-decoration: none; margin-left: 24px; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: color .2s; }
-    nav a:hover { color: #e040fb; }
-    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at center, #1a0028 0%, #0a0a0a 70%); }
-    .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(224,64,251,0.03) 2px, rgba(224,64,251,0.03) 4px); }
-    .hero-content { text-align: center; z-index: 1; }
-    .hero-content h1 { font-size: 4rem; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; background: linear-gradient(90deg, #e040fb, #7c4dff, #40c4ff, #e040fb); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; }
-    @keyframes shine { to { background-position: 200% center; } }
-    .hero-content .tagline { color: #aaa; font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 36px; }
-    .hero-buttons { display: flex; gap: 20px; justify-content: center; }
-    .btn-glow { display: inline-block; background: linear-gradient(135deg, #e040fb, #7c4dff); padding: 14px 32px; border-radius: 30px; text-decoration: none; color: #fff; font-weight: 700; letter-spacing: 1px; box-shadow: 0 0 20px rgba(224,64,251,0.4); }
-    .btn-outline { display: inline-block; border: 1px solid #e040fb; padding: 14px 32px; border-radius: 30px; text-decoration: none; color: #e040fb; letter-spacing: 1px; }
-    .section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
-    .section h2 { font-size: 1.8rem; text-align: center; margin-bottom: 8px; letter-spacing: 4px; text-transform: uppercase; color: #e040fb; }
-    .section .sub { text-align: center; color: #666; margin-bottom: 50px; font-size: 0.85rem; letter-spacing: 2px; }
-    .tracks { display: flex; flex-direction: column; gap: 12px; }
-    .track { display: flex; align-items: center; gap: 16px; background: #111; border-radius: 8px; padding: 16px 20px; border: 1px solid #222; transition: border-color .2s; cursor: pointer; }
-    .track:hover { border-color: #e040fb; }
-    .track-num { width: 24px; color: #555; font-size: 0.9rem; text-align: center; }
-    .track-art { width: 48px; height: 48px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-    .track-info { flex: 1; }
-    .track-info h4 { font-size: 0.95rem; margin-bottom: 4px; }
-    .track-info p { color: #666; font-size: 0.8rem; }
-    .track-duration { color: #666; font-size: 0.85rem; }
-    .play-btn { width: 36px; height: 36px; background: #e040fb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
-    .members { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
-    .member { text-align: center; }
-    .member-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 3px solid #e040fb; }
-    .member h4 { font-size: 1rem; margin-bottom: 4px; }
-    .member p { color: #666; font-size: 0.8rem; }
+    body { background: #0c0c14; color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; background: rgba(12,12,20,0.9); backdrop-filter: blur(10px); z-index: 100; }
+    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 3px; color: #f6c90e; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.85rem; letter-spacing: 1px; }
+    .btn-ticket { background: #f6c90e; color: #0c0c14 !important; padding: 8px 20px; border-radius: 4px; font-weight: 800; }
+    .hero { min-height: 100vh; background: linear-gradient(135deg, #0c0c14, #1a0a2e, #0c1428); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 40px; position: relative; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(246,201,14,0.1) 0%, transparent 60%), radial-gradient(ellipse at 70% 40%, rgba(147,51,234,0.1) 0%, transparent 60%); }
+    .event-date { display: inline-block; background: rgba(246,201,14,0.15); border: 1px solid rgba(246,201,14,0.4); color: #f6c90e; padding: 8px 24px; border-radius: 4px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; }
+    .hero h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: 6px; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+    .hero h1 span { color: #f6c90e; }
+    .hero h2 { font-size: 1.4rem; font-weight: 300; letter-spacing: 6px; color: #aaa; margin-bottom: 32px; }
+    .hero p { color: #888; max-width: 500px; line-height: 1.7; margin-bottom: 40px; }
+    .hero-actions { display: flex; gap: 16px; }
+    .btn-gold { background: #f6c90e; color: #0c0c14; padding: 14px 36px; text-decoration: none; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
+    .btn-ghost { border: 1px solid #444; color: #ccc; padding: 14px 36px; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; }
+    .countdown { display: flex; gap: 24px; margin: 50px auto; justify-content: center; }
+    .count-item { text-align: center; }
+    .count-item .number { font-size: 3rem; font-weight: 900; color: #f6c90e; line-height: 1; }
+    .count-item .label { font-size: 0.7rem; color: #666; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+    .section { padding: 80px 40px; }
+    .section h2 { text-align: center; font-size: 1.8rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; color: #f6c90e; }
+    .section .sub { text-align: center; color: #666; font-size: 0.85rem; margin-bottom: 50px; }
+    .lineup { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .artist { background: #111; border: 1px solid #222; border-radius: 8px; padding: 24px; text-align: center; transition: border-color .2s; cursor: pointer; }
+    .artist:hover { border-color: #f6c90e; }
+    .artist .av { font-size: 2.5rem; margin-bottom: 12px; }
+    .artist h4 { font-size: 0.95rem; margin-bottom: 4px; }
+    .artist p { color: #666; font-size: 0.8rem; }
+    .artist .day { margin-top: 8px; font-size: 0.75rem; color: #f6c90e; }
+    .schedule { max-width: 700px; margin: 0 auto; }
+    .day-schedule { margin-bottom: 32px; }
+    .day-schedule h3 { color: #f6c90e; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; border-left: 3px solid #f6c90e; padding-left: 12px; margin-bottom: 16px; }
+    .schedule-item { display: flex; gap: 20px; padding: 12px 0; border-bottom: 1px solid #1a1a1a; }
+    .schedule-item .time { color: #666; font-size: 0.85rem; min-width: 70px; }
+    .schedule-item .info h5 { font-size: 0.9rem; margin-bottom: 4px; }
+    .schedule-item .info p { color: #666; font-size: 0.8rem; }
     footer { text-align: center; padding: 40px; color: #444; border-top: 1px solid #1a1a1a; font-size: 0.85rem; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">ECHO WAVES</div>
+    <div class="logo">FUTURE FEST</div>
     <nav>
-      <a href="#">音楽</a>
-      <a href="#">ライブ</a>
-      <a href="#">メンバー</a>
-      <a href="#">グッズ</a>
+      <a href="#">ラインナップ</a>
+      <a href="#">スケジュール</a>
+      <a href="#">アクセス</a>
+      <a href="#" class="btn-ticket">チケット購入</a>
     </nav>
   </header>
 
   <div class="hero">
-    <div class="hero-content">
-      <h1>Echo Waves</h1>
-      <p class="tagline">Where music meets the soul</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-glow">▶ 聴いてみる</a>
-        <a href="#" class="btn-outline">ライブチケット</a>
-      </div>
+    <span class="event-date">📅 2025年7月18日–20日 | 幕張メッセ</span>
+    <h1>FUTURE<br><span>FEST</span></h1>
+    <h2>2025</h2>
+    <p>3日間、50組以上のアーティストが集結する日本最大の音楽フェスティバル。あなたの夏を変える体験がここに。</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-gold">チケット購入</a>
+      <a href="#" class="btn-ghost">詳細を見る</a>
+    </div>
+    <div class="countdown">
+      <div class="count-item"><div class="number">101</div><div class="label">Days</div></div>
+      <div class="count-item"><div class="number">12</div><div class="label">Hours</div></div>
+      <div class="count-item"><div class="number">34</div><div class="label">Minutes</div></div>
+      <div class="count-item"><div class="number">56</div><div class="label">Seconds</div></div>
     </div>
   </div>
 
   <div class="section">
-    <h2>Latest Tracks</h2>
-    <p class="sub">2025年 最新アルバム「NEON DREAMS」より</p>
-    <div class="tracks">
-      <div class="track">
-        <span class="track-num">1</span>
-        <div class="track-art" style="background: linear-gradient(135deg, #e040fb, #7c4dff);">🎵</div>
-        <div class="track-info"><h4>Neon Dreams</h4><p>Echo Waves</p></div>
-        <span class="track-duration">3:42</span>
-        <div class="play-btn">▶</div>
-      </div>
-      <div class="track">
-        <span class="track-num">2</span>
-        <div class="track-art" style="background: linear-gradient(135deg, #40c4ff, #0080ff);">🎸</div>
-        <div class="track-info"><h4>Electric Storm</h4><p>Echo Waves</p></div>
-        <span class="track-duration">4:15</span>
-        <div class="play-btn">▶</div>
-      </div>
-      <div class="track">
-        <span class="track-num">3</span>
-        <div class="track-art" style="background: linear-gradient(135deg, #ff6b6b, #ffa500);">🥁</div>
-        <div class="track-info"><h4>Midnight Run</h4><p>Echo Waves</p></div>
-        <span class="track-duration">3:58</span>
-        <div class="play-btn">▶</div>
-      </div>
-      <div class="track">
-        <span class="track-num">4</span>
-        <div class="track-art" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">🎹</div>
-        <div class="track-info"><h4>Lost in the City</h4><p>Echo Waves</p></div>
-        <span class="track-duration">5:02</span>
-        <div class="play-btn">▶</div>
-      </div>
+    <h2>Lineup</h2>
+    <p class="sub">2025年の出演アーティスト一覧</p>
+    <div class="lineup">
+      <div class="artist"><div class="av">🎤</div><h4>THE NEON SKY</h4><p>ヘッドライナー</p><p class="day">Day 1 | MAIN STAGE</p></div>
+      <div class="artist"><div class="av">🎸</div><h4>ELECTRIC PULSE</h4><p>ロック</p><p class="day">Day 1 | STAGE B</p></div>
+      <div class="artist"><div class="av">🎹</div><h4>LUNA WAVE</h4><p>エレクトロニック</p><p class="day">Day 2 | MAIN STAGE</p></div>
+      <div class="artist"><div class="av">🥁</div><h4>STORM RIDERS</h4><p>ヘビーメタル</p><p class="day">Day 2 | STAGE C</p></div>
+      <div class="artist"><div class="av">🎵</div><h4>CRYSTAL ECHO</h4><p>インディーポップ</p><p class="day">Day 3 | MAIN STAGE</p></div>
+      <div class="artist"><div class="av">🎺</div><h4>JAZZ HORIZON</h4><p>ジャズフュージョン</p><p class="day">Day 3 | STAGE A</p></div>
     </div>
   </div>
 
-  <div class="section" style="background: #0d0d0d; max-width:100%; padding: 80px 40px;">
-    <div style="max-width:1000px; margin: 0 auto;">
-      <h2>Members</h2>
-      <p class="sub">バンドメンバーを紹介します</p>
-      <div class="members">
-        <div class="member">
-          <div class="member-avatar" style="background: #1a0028;">🎤</div>
-          <h4>Ren Sakamoto</h4>
-          <p>Vocals / Guitar</p>
-        </div>
-        <div class="member">
-          <div class="member-avatar" style="background: #001a28;">🎸</div>
-          <h4>Yuki Tanaka</h4>
-          <p>Lead Guitar</p>
-        </div>
-        <div class="member">
-          <div class="member-avatar" style="background: #1a1a00;">🥁</div>
-          <h4>Hana Sato</h4>
-          <p>Drums</p>
-        </div>
-        <div class="member">
-          <div class="member-avatar" style="background: #001a00;">🎹</div>
-          <h4>Kai Mizuki</h4>
-          <p>Keyboard / Synth</p>
-        </div>
+  <div class="section" style="background: #0d0d18;">
+    <h2>Schedule</h2>
+    <p class="sub">3日間のタイムテーブル</p>
+    <div class="schedule">
+      <div class="day-schedule">
+        <h3>Day 1 - 7月18日(金)</h3>
+        <div class="schedule-item"><span class="time">15:00</span><div class="info"><h5>オープン &amp; ウェルカムセッション</h5></div></div>
+        <div class="schedule-item"><span class="time">17:00</span><div class="info"><h5>ELECTRIC PULSE</h5><p>Stage B</p></div></div>
+        <div class="schedule-item"><span class="time">20:00</span><div class="info"><h5>THE NEON SKY (ヘッドライナー)</h5><p>Main Stage</p></div></div>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Echo Waves | All rights reserved | 📧 contact@echowaves.jp</p>
+    <p>&copy; 2025 Future Fest | info@futurefest.jp | 幕張メッセ、千葉県千葉市</p>
   </footer>
 </body>
 </html>
